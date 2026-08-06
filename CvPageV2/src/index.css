@@ -1,0 +1,50 @@
+@import 'tailwindcss';
+/* @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap'); */
+
+@font-face {
+  font-family: 'CMU Typewriter Text';
+  src: url('./assets/fonts/cmu.typewriter-text-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: 'CMU Typewriter Text', monospace;
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-primary: #0ea5e9;
+  --color-secondary: #38bdf8;
+  --color-muted: #94a3b8;
+  --color-border: rgba(148, 163, 184, 0.22);
+  --color-card: #111111;
+  --color-ring: #0ea5e9;
+}
+
+:root {
+  font-family: var(--font-sans);
+  color: var(--color-foreground);
+  background: var(--color-background);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(14, 165, 233, 0.2), transparent 25%),
+    var(--color-background);
+}
+
+#root {
+  min-height: 100%;
+}
