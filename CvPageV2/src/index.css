@@ -22,6 +22,118 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'CMU Typewriter Text';
+  src: url('./assets/fonts/cmu.typewriter-text-light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CMU Typewriter Text';
+  src: url('./assets/fonts/cmu.typewriter-text-italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CMU Typewriter Text';
+  src: url('./assets/fonts/cmu.typewriter-text-lightoblique.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Century Expanded';
+  src: url('./assets/fonts/CenturyExpanded.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FOT Matisse Pro';
+  src: url('./assets/fonts/FOT-Matisse Pro EB.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FOT New Cezanne Pro';
+  src: url('./assets/fonts/FOT-NewCezanne Pro DB.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'EP Gyosho';
+  src: url('./assets/fonts/epgyosho.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'EP Gyosho';
+  src: url('./assets/fonts/epgyobld.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'EP Kaisho';
+  src: url('./assets/fonts/epkaisho(1).ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'EP Mincho';
+  src: url('./assets/fonts/epminbld.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yu Gothic Local';
+  src: url('./assets/fonts/YuGothL.ttc') format('collection');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yu Gothic Local';
+  src: url('./assets/fonts/YuGothR.ttc') format('collection');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yu Gothic Local';
+  src: url('./assets/fonts/YuGothM.ttc') format('collection');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yu Gothic Local';
+  src: url('./assets/fonts/YuGothB.ttc') format('collection');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-sans: 'Jost', sans-serif;
   --font-serif: 'Shippori Mincho', serif;
@@ -31,6 +143,13 @@
   --font-biz: 'BIZ UDPGothic', sans-serif;
   /* Local font */
   --font-typewriter: 'CMU Typewriter Text', monospace;
+  --font-century-expanded: 'Century Expanded', serif;
+  --font-matisse: 'FOT Matisse Pro', serif;
+  --font-new-cezanne: 'FOT New Cezanne Pro', serif;
+  --font-ep-gyosho: 'EP Gyosho', serif;
+  --font-ep-kaisho: 'EP Kaisho', serif;
+  --font-ep-mincho: 'EP Mincho', serif;
+  --font-yu-gothic: 'Yu Gothic Local', sans-serif;
 
   --color-background: #000000;
   --color-foreground: #ffffff;

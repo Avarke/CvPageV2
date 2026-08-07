@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { SidebarDrawer } from './components/SidebarDrawer'
 import profilePicture from './assets/profile/unnamed.jpg'
 import { Button} from './components/Button'
+import { CvSection } from './components/CvSection'
 
 
 type DrawerSection = 'about' | 'skills' | 'contact' | null
@@ -68,21 +69,18 @@ function App() {
 
               <div className="absolute inset-0 bg-linear-to-t from-black via-black/15 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
-                <h1 className="origin-bottom mb-2 scale-y-[1.30] text-3xl leading-none font-mono font-semibold tracking-normal sm:text-4xl">
-                  Arijus Vaškiavičius
+                <h1 className="origin-bottom mb-1 scale-y-[1.40] text-3xl leading-none font-ep-kaisho font-semibold tracking-wide sm:text-5xl">
+                  Arijus  <br/>Vaškiavičius
                 </h1>
-                <p className="origin-top scale-y-[1.30] text-sm uppercases font-medium tracking-[0.3em] text-stone-300">
+                <p className="origin-top scale-y-[1.40] font-yu-gothic text-sm uppercases font-bold uppercase tracking-normal text-stone-300">
                   Junior Developer
                 </p>
                 
               </div>
             </section>
 
-            <section className="flex min-h-0 flex-col justify-center border border-zinc-300 bg-white/75 p-6 shadow-lg">
-              <p className="mb-3 text-xl origin-top scale-y-[1.4] uppercase font-semibold font-mono tracking-[0.1em] text-red-800">
-                About
-              </p>
-              <p className="text-sm leading-normal  text-zinc-950">
+            <CvSection title="About">
+              <p className="text-sm leading-normal font-yu-gothic text-zinc-950">
                 I am a junior developer from KTU, alumni of SKILLed FinTech program. Actively seeking opportunities to improve my skills and contribute to useful projects.
               </p>
               <div className="mt-4 flex gap-2">
@@ -93,12 +91,9 @@ function App() {
                   Download CV (LT)
                 </Button>
               </div>
-            </section>
+            </CvSection>
 
-            <section className="flex min-h-0 flex-col justify-center border border-zinc-300 bg-white/75 p-6 shadow-lg">
-              <p className="mb-5 text-xl origin-top scale-y-[1.4] uppercase font-semibold font-mono tracking-[0.1em] text-red-800">
-                Contact
-              </p>
+            <CvSection title="Contact">
               <address className="space-y-4 text-sm not-italic">
                 <ContactItem label="Phone" href="tel:+37060000000">
                   +370 600 00000
@@ -108,14 +103,10 @@ function App() {
                 </ContactItem>
                 <ContactItem label="Location">Vilnius, Lithuania</ContactItem>
               </address>
-            </section>
+            </CvSection>
 
 
-            <section className="flex min-h-0 flex-col justify-center border border-zinc-300 bg-white/75 p-6 shadow-lg">
-              <p className="mb-5 text-xl origin-top scale-y-[1.4] uppercase font-semibold font-mono tracking-[0.1em] text-red-800">
-                Technical Skills
-              </p>
-
+            <CvSection title="Technical Skills">
               <div className="flex flex-wrap gap-2 text-sm">
                 {skills.map((skill) => (
                   <span
@@ -126,10 +117,7 @@ function App() {
                   </span>
                 ))}
               </div>
-
-
-
-            </section>
+            </CvSection>
 
           </div>
 
