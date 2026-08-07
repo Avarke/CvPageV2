@@ -65,7 +65,7 @@ export function BackgroundCarousel({
         />
       </AnimatePresence>
 
-      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-black/10" />
     </div>
   )
 }

@@ -18,10 +18,10 @@ export function SidebarDrawer({
         key={activeSection ?? 'closed'}
         initial={{ width: 0 }}
         animate={{
-          width: isOpen ? 400 : 0,
+          width: isOpen ? 500 : 0,
           transition: {
             duration: isOpen ? 0.5 : 0,
-            delay: isOpen ? 0.1 : 0,
+            // delay: isOpen ? 0.1 : 0,
             ease: easeInOut,
           },
         }}
@@ -37,13 +37,13 @@ export function SidebarDrawer({
         {/* Drawer background and content */}
         <div className="absolute inset-0 overflow-hidden bg-zinc-800 text-white">
             {/* Cia pakeisti width, suderinti su animate width jeigu norim padidinti/sumazinti */}
-          <div className="absolute inset-y-0 right-0 w-100 p-8"> 
+          <div className="absolute inset-y-0 right-0 w-125 p-8"> 
             {children}
           </div>
         </div>
 
-        {/* This line moves with the drawer's left edge */}
-        <div className="absolute inset-y-0 left-0 z-10 w-3 bg-red-800" />
+        {/* Follow the drawer's moving edge; when closed, the line ends at the sidebar. */}
+        <div className="absolute inset-y-0 right-full z-20 w-3 bg-red-800" />
       </motion.section>
     </AnimatePresence>
   )
