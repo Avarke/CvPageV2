@@ -36,10 +36,10 @@ export function CvSection({ title, kanji, children }: CvSectionProps) {
     const verticalPosition =
       (event.clientY - bounds.top) / bounds.height - 0.5
 
-    x.set(horizontalPosition * 8) // didinti skaicius cia jeigu nori didesnio judesio
-    y.set(verticalPosition * 8)
-    rotateX.set(verticalPosition * -3)
-    rotateY.set(horizontalPosition * 3)
+    x.set(horizontalPosition * 6) // didinti skaicius cia jeigu nori didesnio judesio
+    y.set(verticalPosition * 6)
+    rotateX.set(verticalPosition * -2)
+    rotateY.set(horizontalPosition * 2)
   }
 
   function resetPosition() {
@@ -63,18 +63,20 @@ export function CvSection({ title, kanji, children }: CvSectionProps) {
         transformPerspective: 900,
       }}
     >
-      <h2 className="mb-5 origin-top scale-y-[1.6] font-matisse text-xl font-semibold uppercase text-red-800">
+      <h2 className="mb-5 origin-top scale-y-[1.6] font-matisse text-lg font-semibold uppercase text-red-800">
         {kanji ? (
-          <div className="flex w-full items-baseline gap-4 pb-0.5">
-            <div className="tracking-tight">
+          <div className="flex w-full items-baseline gap-4 pb-0.75">
+            <div className="tracking-tight ">
               {title}
             </div>
             <span
               aria-hidden="true"
-              className="ml-auto shrink-0 whitespace-nowrap"
+              className=" shrink-0 whitespace-nowrap"
             >
               {kanji}
             </span>
+            
+            
           </div>
         ) : (
           title

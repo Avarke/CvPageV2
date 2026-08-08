@@ -8,6 +8,7 @@ import { FiLinkedin, FiGithub } from 'react-icons/fi'
 import cvEngPdf from './assets/downloads/CV - Arijus Vaškiavičius_ENG.pdf'
 import { HoverTooltip } from './components/HoverTooltip'
 import { ContactItem } from './components/ContactItem'
+import { DetailCard } from './components/DetailCard'
 
 type DrawerSection = 'about' | 'skills' | 'contact' | null
 
@@ -94,7 +95,7 @@ function App() {
           <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-4">
 
             {/* Foto, name ir contact section */}
-            <section className="group relative overflow-hidden [container-type:inline-size] text-white/95">
+            <section className="group relative overflow-hidden @container text-white/95">
               <img
                 src={profilePicture}
                 alt=""
@@ -103,15 +104,35 @@ function App() {
 
               <div className="absolute inset-0 bg-linear-to-t from-black via-black/15 to-transparent" />
 
-              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-[clamp(1.75rem,6cqw,3rem)]">
-                <h1 className="mb-1 origin-bottom scale-y-[1.50] font-ep-kaisho text-3xl leading-none tracking-normal font-semibold sm:text-[clamp(3rem,10cqw,5rem)]">
-                  Arijus <br />
-                  Vaškiavičius
-                </h1>
 
-                <p className="origin-top scale-y-[1.40] font-yu-gothic text-sm font-bold tracking-normal text-stone-300 uppercase sm:text-[clamp(0.875rem,3cqw,1.25rem)]">
-                  Junior Developer
-                </p>
+              <div className="pointer-events-none absolute inset-0 z-10">
+                <span
+                  aria-hidden="true"
+                  className="
+                    absolute
+                    top-[clamp(1.5rem,5cqw,3rem)]
+                    right-[clamp(1.5rem,5cqw,3rem)]
+                    select-none font-matisse
+                    text-[clamp(3rem,10cqw,14rem)]
+                    leading-none text-white
+                    tracking-normal
+
+                    origin-top
+                    scale-y-[1.5]
+                  "
+                >
+                  猫
+                </span>
+                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-[clamp(1.75rem,6cqw,3rem)]">
+                  <h1 className="mb-1 origin-bottom scale-y-[1.50] font-ep-kaisho text-3xl leading-none tracking-normal font-semibold sm:text-[clamp(3rem,10cqw,5rem)]">
+                    Arijus <br />
+                    Vaškiavičius
+                  </h1>
+
+                  <p className="origin-top scale-y-[1.40] font-yu-gothic text-sm font-bold tracking-normal text-stone-300 uppercase sm:text-[clamp(0.875rem,3cqw,1.25rem)]">
+                    Junior Developer
+                  </p>
+                </div>
               </div>
             </section>
 
@@ -121,11 +142,11 @@ function App() {
               title="About"
             >
               <p className="text-sm leading-normal font-yu-gothic text-zinc-950">
-                I am a junior developer from KTU, alumni of SKILLed FinTech program. Passionate about creating innovative solutions and breaking conventions. Actively seeking opportunities to sharpen my skills and contribute to useful projects. Hekki. <span className="mt-2 block text-right">
-                  - With love, from the past
+                I am a junior developer from KTU, alumni of SKILLed FinTech program. Passionate about creating innovative solutions and breaking conventions. Actively seeking opportunities to sharpen my skills and contribute to useful projects. <span className="mt-2 block text-right">
+                  - Sunrise, parabellum
                 </span>
               </p>
-
+              {/* Downlaod buttons and socials */}
               <div className="mt-3 flex flex-wrap gap-2">
                 <Button variant="default" size="sm">
                   <a href={cvEngPdf} download="Arijus_Vaskiavicius_CV_ENG.pdf">
@@ -212,7 +233,7 @@ function App() {
                 {skills.map((skill) => (
                   <span
                     key={skill}
-                    className="bg-red-800/10 px-3 py-1 text-xs font-medium text-red-800"
+                    className="bg-red-800/10 px-3 py-1 text-xs font-normal font-yu-gothic text-red-800"
                   >
                     {skill}
                   </span>
@@ -222,18 +243,30 @@ function App() {
 
           </div>
 
-          <nav className="mt-5 flex gap-2 border-t border-zinc-400/50 pt-5" aria-label="CV sections">
-            <button className="flex-1 border border-zinc-400 px-2 py-2 text-xs uppercase tracking-wider transition hover:border-red-800 hover:bg-red-800 hover:text-white" onClick={() => toggleSection('about')}>
-              About
-            </button>
+          <nav
+            className="mt-5 grid grid-cols-2 gap-3 border-t border-zinc-400/50 pt-5"
+            aria-label="CV sections"
+          >
+            <DetailCard
+              title="About"
+              kanji="約"
+              active={activeSection === 'about'}
+              onClick={() => toggleSection('about')}
+            />
 
-            <button className="flex-1 border border-zinc-400 px-2 py-2 text-xs uppercase tracking-wider transition hover:border-red-800 hover:bg-red-800 hover:text-white" onClick={() => toggleSection('skills')}>
-              Skills
-            </button>
+            <DetailCard
+              title="Skills"
+              kanji="芸"
+              active={activeSection === 'skills'}
+              onClick={() => toggleSection('skills')}
+            />
 
-            <button className="flex-1 border border-zinc-400 px-2 py-2 text-xs uppercase tracking-wider transition hover:border-red-800 hover:bg-red-800 hover:text-white" onClick={() => toggleSection('contact')}>
-              Contact
-            </button>
+            <DetailCard
+              title="Contact"
+              kanji="手"
+              active={activeSection === 'contact'}
+              onClick={() => toggleSection('contact')}
+            />
           </nav>
         </aside>
       </div>
