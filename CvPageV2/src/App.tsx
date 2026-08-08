@@ -10,7 +10,7 @@ import { HoverTooltip } from './components/HoverTooltip'
 import { ContactItem } from './components/ContactItem'
 import { DetailCard } from './components/DetailCard'
 
-type DrawerSection = 'about' | 'skills' | 'contact' | null
+type DrawerSection = 'experience' | 'projects' | 'hobbies' | 'untitled' | null
 
 const backgroundImages = Object.values(
   import.meta.glob('./assets/background/*', {
@@ -66,24 +66,33 @@ function App() {
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
       <BackgroundCarousel images={backgroundImages} />
 
-      <div className="fixed inset-y-0 right-0 z-50 w-[min(90vw,24rem)] sm:w-[max(33.333vw,30rem)]">
-
-        <SidebarDrawer activeSection={activeSection}>
-          {activeSection === 'about' && (
+      <div className="fixed inset-0 z-50 w-full sm:inset-y-0 sm:right-0 sm:left-auto sm:w-[max(33.333vw,30rem)]">
+        <SidebarDrawer 
+        activeSection={activeSection}
+        onClose={() => setActiveSection(null)}
+        >
+          {activeSection === 'experience' && (
             <div>
               <h2 className="text-2xl">About</h2>
               <p>About section content.</p>
             </div>
           )}
 
-          {activeSection === 'skills' && (
+          {activeSection === 'projects' && (
             <div>
               <h2 className="text-2xl">Skills</h2>
               <p>Skills section content.</p>
             </div>
           )}
 
-          {activeSection === 'contact' && (
+          {activeSection === 'hobbies' && (
+            <div>
+              <h2 className="text-2xl">Contact</h2>
+              <p>Contact section content.</p>
+            </div>
+          )}
+
+          {activeSection === 'untitled' && (
             <div>
               <h2 className="text-2xl">Contact</h2>
               <p>Contact section content.</p>
@@ -91,7 +100,7 @@ function App() {
           )}
         </SidebarDrawer>
 
-        <aside className="h-full overflow-y-auto bg-stone-200/95 p-5 text-zinc-500 shadow-2xl backdrop-blur-md sm:p-7">
+        <aside className="h-full overflow-y-auto bg-stone-200 p-5 text-zinc-500 shadow-2xl sm:bg-stone-200/95 sm:p-7 sm:backdrop-blur-md">
           <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-4">
 
             {/* Foto, name ir contact section */}
@@ -248,24 +257,31 @@ function App() {
             aria-label="CV sections"
           >
             <DetailCard
-              title="About"
-              kanji="約"
-              active={activeSection === 'about'}
-              onClick={() => toggleSection('about')}
+              title="Experience"
+              kanji="慣"
+              active={activeSection === 'experience'}
+              onClick={() => toggleSection('experience')}
             />
 
             <DetailCard
-              title="Skills"
-              kanji="芸"
-              active={activeSection === 'skills'}
-              onClick={() => toggleSection('skills')}
+              title="Projects"
+              kanji="挙"
+              active={activeSection === 'projects'}
+              onClick={() => toggleSection('projects')}
             />
 
             <DetailCard
-              title="Contact"
-              kanji="手"
-              active={activeSection === 'contact'}
-              onClick={() => toggleSection('contact')}
+              title="Hobbies"
+              kanji="趣味"
+              active={activeSection === 'hobbies'}
+              onClick={() => toggleSection('hobbies')}
+            />
+
+            <DetailCard
+              title="Untitled"
+              kanji="未知"
+              active={activeSection === 'untitled'}
+              onClick={() => toggleSection('untitled')}
             />
           </nav>
         </aside>
