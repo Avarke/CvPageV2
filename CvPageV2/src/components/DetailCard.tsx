@@ -75,7 +75,7 @@ export function DetailCard({
                 rotateY,
                 transformPerspective: 900,
             }}
-            className={`
+            className={` @container
         group relative flex aspect-square w-full
         flex-col overflow-hidden p-4 text-left
         transition-all duration-300 ease-out
@@ -92,7 +92,7 @@ export function DetailCard({
                     aria-hidden="true"
                     className={`
             absolute top-3 right-3
-            font-matisse text-[clamp(2.5rem,8cqw,4rem)]
+            font-matisse text-[clamp(2.5rem,30cqw,8rem)]
             leading-none tracking-normal transition-colors duration-300
             ${active
                             ? 'text-white/25'
@@ -105,7 +105,7 @@ export function DetailCard({
                 </span>
             )}
 
-            <span className="relative z-10 mt-auto font-matisse origin-bottom scale-y-[2] text-sm font-semibold tracking-wider uppercase">
+            <span className="relative z-10 mt-auto font-matisse origin-bottom scale-y-[2] text-[clamp(0.875rem,7cqw,2rem)] font-semibold tracking-wider uppercase">
                 {title}
             </span>
         </motion.button>
