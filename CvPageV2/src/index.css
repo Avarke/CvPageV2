@@ -134,6 +134,62 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./assets/fonts/helvetica/Helvetica.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./assets/fonts/helvetica/Helvetica-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./assets/fonts/helvetica/Helvetica-Oblique.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./assets/fonts/helvetica/Helvetica-BoldOblique.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Light';
+  src: url('./assets/fonts/helvetica/helvetica-light-587ebe5a59211.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Compressed';
+  src: url('./assets/fonts/helvetica/helvetica-compressed-5871d14b6903a.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Rounded';
+  src: url('./assets/fonts/helvetica/helvetica-rounded-bold-5871d05ead8de.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-sans: 'Jost', sans-serif;
   --font-serif: 'Shippori Mincho', serif;
@@ -147,9 +203,15 @@
   --font-matisse: 'FOT Matisse Pro', serif;
   --font-new-cezanne: 'FOT New Cezanne Pro', serif;
   --font-ep-gyosho: 'EP Gyosho', serif;
-  --font-ep-kaisho: 'EP Kaisho', serif;
+  --font-ep-kaisho: 'EP Kaisho', serif; /* For big titles */
   --font-ep-mincho: 'EP Mincho', serif;
-  --font-yu-gothic: 'Yu Gothic Local', sans-serif;
+  --font-yu-gothic: 'Yu Gothic Local', sans-serif; /* For body text */
+
+  /* Helvetica fonts */
+  --font-helvetica: 'Helvetica', sans-serif;
+  --font-helvetica-light: 'Helvetica Light', sans-serif;
+  --font-helvetica-compressed: 'Helvetica Compressed', sans-serif;
+  --font-helvetica-rounded: 'Helvetica Rounded', sans-serif;
 
   --color-background: #000000;
   --color-foreground: #ffffff;

@@ -2,8 +2,14 @@ import { BackgroundCarousel } from './components/BackgroundCarousel'
 import { useState } from 'react'
 import { SidebarDrawer } from './components/SidebarDrawer'
 import profilePicture from './assets/profile/unnamed.jpg'
-import { Button} from './components/Button'
+import { Button } from './components/Button'
 import { CvSection } from './components/CvSection'
+import { AnimatePresence, motion } from 'motion/react'
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa6'
+import { FiLinkedin, FiGithub } from 'react-icons/fi'
+import cvEngPdf from './assets/downloads/CV - Arijus Vaškiavičius_ENG.pdf'
+
+
 
 
 type DrawerSection = 'about' | 'skills' | 'contact' | null
@@ -16,8 +22,55 @@ const backgroundImages = Object.values(
 ) as string[]
 
 const skills = ['React', 'TypeScript', 'Tailwind CSS', 'C#', '.NET', 'SQL', 'Python', 'Java']
+const linkedInUrl = 'https://www.linkedin.com/in/arijus-vaskiavicius/'
+const githubUrl = 'https://github.com/Avarke'
+
+function HoverTooltip({ text, visible }: { text: string; visible: boolean }) {
+  return (
+    <div className="pointer-events-none absolute -top-11 left-1/2 z-20 -translate-x-1/2">
+      <AnimatePresence>
+        {visible ? (
+          <motion.div
+            initial={{ opacity: 0, y: 6, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 4, scale: 0.96 }}
+            transition={{ duration: 0.18, ease: 'easeOut' }}
+            className="whitespace-nowrap border-2 border-red-800 bg-red-800 px-3 py-1.5 font-yu-gothic text-xs font-bold text-white/90 shadow-md shadow-red-800/20"          >
+            {text}
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </div>
+  )
+}
+
 
 function App() {
+
+  const [copiedContact, setCopiedContact] = useState<string | null>(null)
+  const [hoveredSocial, setHoveredSocial] = useState<string | null>(null)
+  const contactItemClassName =
+    '-mx-3 flex w-fit items-center gap-3 rounded-full px-4 py-1 text-left text-sm text-slate-200'
+  const contactButtonClassName =
+    `${contactItemClassName} cursor-pointer outline outline-1 outline-transparent transition-[background-color,outline-color] duration-200 ease-out hover:bg-slate-900/40 hover:outline-slate-700`  // Handle copying contact information to clipboard
+  const handleCopy = async (value: string) => {
+    try {
+      await navigator.clipboard.writeText(value)
+      setCopiedContact(value)
+
+      window.setTimeout(() => {
+        setCopiedContact(null)
+      }, 2000)
+    } catch {
+      setCopiedContact(value)
+
+      window.setTimeout(() => {
+        setCopiedContact(null)
+      }, 2000)
+    }
+  }
+
+
 
   const [activeSection, setActiveSection] =
     useState<DrawerSection>(null)
@@ -58,7 +111,7 @@ function App() {
         </SidebarDrawer>
 
         <aside className="h-full overflow-y-auto bg-stone-200/95 p-5 text-zinc-500 shadow-2xl backdrop-blur-md sm:p-7">
-          <div className="grid flex-1 gap-4">
+          <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-4">
             {/* Foto, name ir contact section */}
             <section className="group relative aspect-square overflow-hidden bg-zinc-900 text-white shadow-xl">
               <img
@@ -70,48 +123,109 @@ function App() {
               <div className="absolute inset-0 bg-linear-to-t from-black via-black/15 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
                 <h1 className="origin-bottom mb-1 scale-y-[1.40] text-3xl leading-none font-ep-kaisho font-semibold tracking-wide sm:text-5xl">
-                  Arijus  <br/>Vaškiavičius
+                  Arijus  <br />Vaškiavičius
                 </h1>
                 <p className="origin-top scale-y-[1.40] font-yu-gothic text-sm uppercases font-bold uppercase tracking-normal text-stone-300">
                   Junior Developer
                 </p>
-                
+
               </div>
             </section>
 
-            <CvSection title="About">
+            {/* About section */}
+            <CvSection
+              kanji="約"
+              title="About"
+            >
               <p className="text-sm leading-normal font-yu-gothic text-zinc-950">
-                I am a junior developer from KTU, alumni of SKILLed FinTech program. Actively seeking opportunities to improve my skills and contribute to useful projects.
+                Greetings! I am a junior developer from KTU, alumni of SKILLed FinTech program. Passionate about creating innovative solutions and breaking conventions. Actively seeking opportunities to sharpen my skills and contribute to useful projects.
               </p>
-              <div className="mt-4 flex gap-2">
-                <Button variant="default" size="sm" onClick={() => toggleSection('about')}>
-                  Download CV (ENG)
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                <Button variant="default" size="sm">
+                  <a href={cvEngPdf} download="Arijus_Vaskiavicius_CV_ENG.pdf">
+                    Download CV (ENG)
+                  </a>
                 </Button>
-                <Button variant="default" size="sm" onClick={() => toggleSection('about')}>
-                  Download CV (LT)
+                {/* TODO: ideti lietuviska CV */}
+                <Button variant="default" size="sm">
+                  <a href={cvEngPdf} download="Arijus_Vaskiavicius_CV_ENG.pdf">
+                    Download CV (LT)
+                  </a>
                 </Button>
+                {/* Linkedin ir GitHub linkai */}
+                <div
+                  className="relative"
+                  onMouseEnter={() => setHoveredSocial('Linkedin')}
+                  onMouseLeave={() => setHoveredSocial(null)}
+                >
+                  <HoverTooltip
+                    text="LinkedIn"
+                    visible={hoveredSocial === 'Linkedin'}
+                  />
+
+                  <Button asChild size="icon" className="h-9 w-9">
+                    <a
+                      href={linkedInUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="LinkedIn profile"
+                    >
+                      <FiLinkedin strokeWidth={1.2} aria-hidden="true" />
+                    </a>
+                  </Button>
+                </div>
+                <div
+                  className="relative"
+                  onMouseEnter={() => setHoveredSocial('GitHub')}
+                  onMouseLeave={() => setHoveredSocial(null)}
+                >
+                  <HoverTooltip
+                    text="GitHub"
+                    visible={hoveredSocial === 'GitHub'}
+                  />
+
+                  <Button asChild size="icon" className="h-9 w-9">
+                    <a
+                      href={githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="GitHub profile"
+                    >
+                      <FiGithub strokeWidth={1.2} aria-hidden="true" />
+                    </a>
+                  </Button>
+                </div>
+
               </div>
             </CvSection>
-
-            <CvSection title="Contact">
+            
+            {/* Contact section */}
+            <CvSection
+              kanji="手蔓"
+              title="Contact"
+            >
               <address className="space-y-4 text-sm not-italic">
                 <ContactItem label="Phone" href="tel:+37060000000">
-                  +370 600 00000
+                  +370 699 69444
                 </ContactItem>
                 <ContactItem label="Email" href="mailto:arijus.vask@gmail.com">
-                  arijus.vask@gmail.com
+                  Arijus.vask@gmail.com
                 </ContactItem>
                 <ContactItem label="Location">Vilnius, Lithuania</ContactItem>
               </address>
             </CvSection>
 
-
-            <CvSection title="Technical Skills">
+            {/* Technical Skills section */}
+            <CvSection
+              kanji="芸域"
+              title="Technical Skills"
+            >
               <div className="flex flex-wrap gap-2 text-sm">
                 {skills.map((skill) => (
                   <span
                     key={skill}
-                    className=" bg-red-800/10 px-3 py-1 text-xs font-medium text-red-800"
+                    className="bg-red-800/10 px-3 py-1 text-xs font-medium text-red-800"
                   >
                     {skill}
                   </span>
@@ -167,8 +281,8 @@ function ContactItem({ label, href, children }: ContactItemProps) {
     last:border-0 last:pb-0 last:after:hidden
   "
     >
-      <span className="text-[0.65rem] uppercase tracking-widest font-semibold text-zinc-500">{label}</span>
-      <span className="font-medium">{value}</span>
+      <span className="text-[0.65rem] uppercase tracking-widest font-yu-gothic font-semibold text-zinc-500">{label}</span>
+      <span className="font-medium font-yu-gothic">{value}</span>
     </div>
   )
 }
