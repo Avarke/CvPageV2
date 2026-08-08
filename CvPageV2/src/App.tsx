@@ -85,7 +85,7 @@ function App() {
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
       <BackgroundCarousel images={backgroundImages} />
 
-      <div className="fixed inset-y-0 right-0 z-50 w-[min(90vw,24rem)] sm:w-[clamp(24rem,32vw,32rem)]">
+      <div className="fixed inset-y-0 right-0 z-50 w-[min(90vw,24rem)] sm:w-[max(33.333vw,30rem)]">
 
         <SidebarDrawer activeSection={activeSection}>
           {activeSection === 'about' && (
@@ -112,23 +112,26 @@ function App() {
 
         <aside className="h-full overflow-y-auto bg-stone-200/95 p-5 text-zinc-500 shadow-2xl backdrop-blur-md sm:p-7">
           <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-4">
+
             {/* Foto, name ir contact section */}
-            <section className="group relative aspect-square overflow-hidden bg-zinc-900 text-white shadow-xl">
+            <section className="group relative overflow-hidden [container-type:inline-size] text-white/95">
               <img
                 src={profilePicture}
-                alt="Portrait of Arijus V."
-                className="h-full w-full object-cover scale-115 object-[center_25%] transition-transform duration-700 group-hover:scale-120"
+                alt=""
+                className="h-full w-full object-cover transition-transform duration-500 ease-out scale-[1.1] group-hover:scale-[1.15]"
               />
 
               <div className="absolute inset-0 bg-linear-to-t from-black via-black/15 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">
-                <h1 className="origin-bottom mb-1 scale-y-[1.40] text-3xl leading-none font-ep-kaisho font-semibold tracking-wide sm:text-5xl">
-                  Arijus  <br />Vaškiavičius
+
+              <div className="absolute inset-x-0 bottom-0 p-6 sm:p-[clamp(1.75rem,6cqw,3rem)]">
+                <h1 className="mb-1 origin-bottom scale-y-[1.50] font-ep-kaisho text-3xl leading-none tracking-normal font-semibold sm:text-[clamp(3rem,10cqw,5rem)]">
+                  Arijus <br />
+                  Vaškiavičius
                 </h1>
-                <p className="origin-top scale-y-[1.40] font-yu-gothic text-sm uppercases font-bold uppercase tracking-normal text-stone-300">
+
+                <p className="origin-top scale-y-[1.40] font-yu-gothic text-sm font-bold tracking-normal text-stone-300 uppercase sm:text-[clamp(0.875rem,3cqw,1.25rem)]">
                   Junior Developer
                 </p>
-
               </div>
             </section>
 
@@ -141,7 +144,7 @@ function App() {
                 Greetings! I am a junior developer from KTU, alumni of SKILLed FinTech program. Passionate about creating innovative solutions and breaking conventions. Actively seeking opportunities to sharpen my skills and contribute to useful projects.
               </p>
 
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-3 flex flex-wrap gap-2">
                 <Button variant="default" size="sm">
                   <a href={cvEngPdf} download="Arijus_Vaskiavicius_CV_ENG.pdf">
                     Download CV (ENG)
@@ -199,7 +202,7 @@ function App() {
 
               </div>
             </CvSection>
-            
+
             {/* Contact section */}
             <CvSection
               kanji="手蔓"
@@ -281,8 +284,8 @@ function ContactItem({ label, href, children }: ContactItemProps) {
     last:border-0 last:pb-0 last:after:hidden
   "
     >
-      <span className="text-[0.65rem] uppercase tracking-widest font-yu-gothic font-semibold text-zinc-500">{label}</span>
-      <span className="font-medium font-yu-gothic">{value}</span>
+      <span className="text-[0.8rem] uppercase tracking-widest font-semibold">{label}</span>
+      <span className="ml-auto font-semibold ">{value}</span>
     </div>
   )
 }

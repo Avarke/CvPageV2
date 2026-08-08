@@ -192,6 +192,7 @@
 
 @theme {
   --font-sans: 'Jost', sans-serif;
+
   --font-serif: 'Shippori Mincho', serif;
   --font-mono: 'IBM Plex Mono', monospace;
 
@@ -214,7 +215,7 @@
   --font-helvetica-rounded: 'Helvetica Rounded', sans-serif;
 
   --color-background: #000000;
-  --color-foreground: #ffffff;
+  --color-foreground: var(--color-zinc-950);
   --color-primary: #0ea5e9;
   --color-secondary: #38bdf8;
   --color-muted: #94a3b8;
@@ -224,7 +225,7 @@
 }
 
 :root {
-  font-family: var(--font-sans);
+  font-family: var(--font-yu-gothic);
   color: var(--color-foreground);
   background: var(--color-background);
   font-synthesis: none;

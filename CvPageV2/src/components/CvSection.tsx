@@ -9,22 +9,22 @@ type CvSectionProps = {
 
 export function CvSection({ title, kanji, children }: CvSectionProps) {
   const x = useSpring(useMotionValue(0), {
-    stiffness: 180,
+    stiffness: 120,
     damping: 18,
     mass: 0.35,
   })
   const y = useSpring(useMotionValue(0), {
-    stiffness: 180,
+    stiffness: 120,
     damping: 18,
     mass: 0.35,
   })
   const rotateX = useSpring(useMotionValue(0), {
-    stiffness: 180,
+    stiffness: 120,
     damping: 18,
     mass: 0.35,
   })
   const rotateY = useSpring(useMotionValue(0), {
-    stiffness: 180, // kaip stipriai reaguoja i judesius, didesnis skaicius = stipresne reakcija
+    stiffness: 120, // kaip stipriai reaguoja i judesius, didesnis skaicius = stipresne reakcija
     damping: 18, // sumazina bouncing. daugiau reiskiasi labiau chill movement
     mass: 0.35, // kaip sunkiai jauciasi objektas, kuo daugiau tuo sunkiau
   })
@@ -63,7 +63,7 @@ export function CvSection({ title, kanji, children }: CvSectionProps) {
         transformPerspective: 900,
       }}
     >
-      <h2 className="mb-5 origin-top scale-y-[1.6] font-matisse text-xl font-semibold uppercase tracking-widest text-red-800">
+      <h2 className="mb-5 origin-top scale-y-[1.6] font-matisse text-xl font-semibold uppercase text-red-800">
         {kanji ? (
           <div className="flex w-full items-baseline gap-4 pb-0.5">
             <div className="tracking-tight">
