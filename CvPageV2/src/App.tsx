@@ -1,16 +1,13 @@
 import { BackgroundCarousel } from './components/BackgroundCarousel'
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import { SidebarDrawer } from './components/SidebarDrawer'
 import profilePicture from './assets/profile/unnamed.jpg'
 import { Button } from './components/Button'
 import { CvSection } from './components/CvSection'
-import { AnimatePresence, motion } from 'motion/react'
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa6'
 import { FiLinkedin, FiGithub } from 'react-icons/fi'
 import cvEngPdf from './assets/downloads/CV - Arijus Vaškiavičius_ENG.pdf'
-
-
-
+import { HoverTooltip } from './components/HoverTooltip'
+import { ContactItem } from './components/ContactItem'
 
 type DrawerSection = 'about' | 'skills' | 'contact' | null
 
@@ -25,24 +22,7 @@ const skills = ['React', 'TypeScript', 'Tailwind CSS', 'C#', '.NET', 'SQL', 'Pyt
 const linkedInUrl = 'https://www.linkedin.com/in/arijus-vaskiavicius/'
 const githubUrl = 'https://github.com/Avarke'
 
-function HoverTooltip({ text, visible }: { text: string; visible: boolean }) {
-  return (
-    <div className="pointer-events-none absolute -top-11 left-1/2 z-20 -translate-x-1/2">
-      <AnimatePresence>
-        {visible ? (
-          <motion.div
-            initial={{ opacity: 0, y: 6, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 4, scale: 0.96 }}
-            transition={{ duration: 0.18, ease: 'easeOut' }}
-            className="whitespace-nowrap border-2 border-red-800 bg-red-800 px-3 py-1.5 font-yu-gothic text-xs font-bold text-white/90 shadow-md shadow-red-800/20"          >
-            {text}
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
-    </div>
-  )
-}
+
 
 
 function App() {
@@ -141,7 +121,9 @@ function App() {
               title="About"
             >
               <p className="text-sm leading-normal font-yu-gothic text-zinc-950">
-                Greetings! I am a junior developer from KTU, alumni of SKILLed FinTech program. Passionate about creating innovative solutions and breaking conventions. Actively seeking opportunities to sharpen my skills and contribute to useful projects.
+                I am a junior developer from KTU, alumni of SKILLed FinTech program. Passionate about creating innovative solutions and breaking conventions. Actively seeking opportunities to sharpen my skills and contribute to useful projects. Hekki. <span className="mt-2 block text-right">
+                  - With love, from the past
+                </span>
               </p>
 
               <div className="mt-3 flex flex-wrap gap-2">
@@ -209,13 +191,15 @@ function App() {
               title="Contact"
             >
               <address className="space-y-4 text-sm not-italic">
-                <ContactItem label="Phone" href="tel:+37060000000">
+                <ContactItem label="Phone" href="tel:+37060000000" kanji="電話" copyValue='+37069969444' copied={copiedContact === '+37069969444'} onCopy={handleCopy}>
                   +370 699 69444
                 </ContactItem>
-                <ContactItem label="Email" href="mailto:arijus.vask@gmail.com">
+                <ContactItem label="Email" href="mailto:arijus.vask@gmail.com" kanji="メール" copyValue='arijus.vask@gmail.com' copied={copiedContact === 'arijus.vask@gmail.com'} onCopy={handleCopy}>
                   Arijus.vask@gmail.com
                 </ContactItem>
-                <ContactItem label="Location">Vilnius, Lithuania</ContactItem>
+                <ContactItem label="Location" kanji="場">
+                  Vilnius, Lithuania
+                </ContactItem>
               </address>
             </CvSection>
 
@@ -257,37 +241,6 @@ function App() {
   )
 }
 
-type ContactItemProps = {
-  label: string
-  href?: string
-  children: string
-}
 
-function ContactItem({ label, href, children }: ContactItemProps) {
-  const value = href ? (
-    <a className="break-all transition-colors hover:text-red-800" href={href}>
-      {children}
-    </a>
-  ) : (
-    <span>{children}</span>
-  )
-
-  return (
-    <div
-      className="
-    relative grid grid-cols-[4.5rem_1fr] items-baseline gap-3
-    border-b border-zinc-300 pb-3
-    after:pointer-events-none after:absolute after:bottom-[-1px]
-    after:left-1/2 after:h-px after:w-3/4 after:-translate-x-1/2
-    after:bg-linear-to-r after:from-transparent after:via-white/90
-    after:to-transparent after:content-['']
-    last:border-0 last:pb-0 last:after:hidden
-  "
-    >
-      <span className="text-[0.8rem] uppercase tracking-widest font-semibold">{label}</span>
-      <span className="ml-auto font-semibold ">{value}</span>
-    </div>
-  )
-}
 
 export default App
