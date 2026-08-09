@@ -13,7 +13,7 @@ import { DrawerTitle } from './components/DrawerTitle'
 import { DrawerContent } from './components/DrawerContent'
 import hobbiesVideo from './assets/videos/Manga_1.mov'
 import editingImage from './assets/background/DSCF2088.jpg'
-
+import { ToolLink } from './components/ToolLink'
 type DrawerSection = 'experience' | 'projects' | 'hobbies' | 'untitled' | null
 
 const backgroundImages = Object.values(
@@ -100,15 +100,23 @@ function App() {
               />
 
               <DrawerContent title="Video Editing" subtitle="Moving Pictures">
-                <p>
-                  I enjoy editing videos and experimenting with motion,
-                  composition and visual storytelling.
+                <p className="font-mono text-sm text">
+                  I like editing and composing videos. I have 4+ years worth of
+                  experience and know-how working on personal projects using {''}
+                  <ToolLink href="https://www.adobe.com/products/premiere.html">
+                    Adobe PremierePro
+                  </ToolLink>
+                  . I am also currently learning how to edit using {''}
+                  <ToolLink href="https://www.blackmagicdesign.com/products/davinciresolve">
+                    DaVinci Resolve
+                  </ToolLink>
+                  . Who knows what the future holds...
                 </p>
 
-                <img
+                {/* <img
                   src={editingImage}
                   alt="Video editing project"
-                />
+                /> */}
               </DrawerContent>
 
               <DrawerContent title="Photography" subtitle="Not moving pictures">
@@ -117,7 +125,7 @@ function App() {
                 </p>
               </DrawerContent>
 
-              
+
             </article>
           )}
 

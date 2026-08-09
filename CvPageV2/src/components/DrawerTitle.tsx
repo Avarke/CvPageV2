@@ -40,13 +40,24 @@ export function DrawerTitle({
                     playsInline
                     preload="metadata"
                     aria-hidden="true"
-                    className="absolute inset-0 h-full w-full object-cover mb-2"
+                    className="absolute inset-0 h-full w-full object-cover"
                 />
             )}
 
             {/* <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-black/10" /> */}
             {/* <div className="absolute inset-0 z-10 grid place-items-center "></div> */}
             <div className="absolute -inset-1 bg-black/75" />
+            <div
+                aria-hidden="true"
+                className="
+                    absolute inset-x-0 bottom-0 z-[1]
+                    h-[clamp(2.5rem,6vw,4.5rem)]
+                    bg-linear-to-b
+                    from-transparent
+                    to-zinc-800
+                "
+            />
+
             <h1
                 className="
                 relative z-10
