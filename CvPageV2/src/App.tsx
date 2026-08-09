@@ -9,6 +9,10 @@ import cvEngPdf from './assets/downloads/CV - Arijus Vaškiavičius_ENG.pdf'
 import { HoverTooltip } from './components/HoverTooltip'
 import { ContactItem } from './components/ContactItem'
 import { DetailCard } from './components/DetailCard'
+import { DrawerTitle } from './components/DrawerTitle'
+import { DrawerContent } from './components/DrawerContent'
+import hobbiesVideo from './assets/videos/Manga_1.mov'
+import editingImage from './assets/background/DSCF2088.jpg'
 
 type DrawerSection = 'experience' | 'projects' | 'hobbies' | 'untitled' | null
 
@@ -67,9 +71,9 @@ function App() {
       <BackgroundCarousel images={backgroundImages} />
 
       <div className="fixed inset-0 z-50 w-full sm:inset-y-0 sm:right-0 sm:left-auto sm:w-[max(33.333vw,30rem)]">
-        <SidebarDrawer 
-        activeSection={activeSection}
-        onClose={() => setActiveSection(null)}
+        <SidebarDrawer
+          activeSection={activeSection}
+          onClose={() => setActiveSection(null)}
         >
           {activeSection === 'experience' && (
             <div>
@@ -86,10 +90,35 @@ function App() {
           )}
 
           {activeSection === 'hobbies' && (
-            <div>
-              <h2 className="text-2xl">Contact</h2>
-              <p>Contact section content.</p>
-            </div>
+            <article>
+              <DrawerTitle
+                title="Hobbies"
+                media={{
+                  type: 'video',
+                  src: hobbiesVideo,
+                }}
+              />
+
+              <DrawerContent title="Video Editing" subtitle="Moving Pictures">
+                <p>
+                  I enjoy editing videos and experimenting with motion,
+                  composition and visual storytelling.
+                </p>
+
+                <img
+                  src={editingImage}
+                  alt="Video editing project"
+                />
+              </DrawerContent>
+
+              <DrawerContent title="Photography" subtitle="Not moving pictures">
+                <p>
+                  Photography helps me explore composition, lighting and colour.
+                </p>
+              </DrawerContent>
+
+              
+            </article>
           )}
 
           {activeSection === 'untitled' && (
@@ -150,7 +179,7 @@ function App() {
               kanji="約"
               title="About"
             >
-              <p className="text-sm leading-normal font-yu-gothic text-zinc-950">
+              <p className="leading-normal font-yu-gothic text-zinc-950">
                 I am a junior developer from KTU, alumni of SKILLed FinTech program. Passionate about creating innovative solutions and breaking conventions. Actively seeking opportunities to sharpen my skills and contribute to useful projects. <span className="mt-2 block text-right">
                   - Sunrise, parabellum
                 </span>
@@ -220,7 +249,7 @@ function App() {
               kanji="手蔓"
               title="Contact"
             >
-              <address className="space-y-4 text-sm not-italic">
+              <address className="space-y-4 not-italic">
                 <ContactItem label="Phone" href="tel:+37060000000" kanji="電話" copyValue='+37069969444' copied={copiedContact === '+37069969444'} onCopy={handleCopy}>
                   +370 699 69444
                 </ContactItem>
@@ -237,12 +266,17 @@ function App() {
             <CvSection
               kanji="芸域"
               title="Technical Skills"
+              size="compact"
             >
-              <div className="flex flex-wrap gap-2 text-sm">
+              <div className="flex flex-wrap gap-[clamp(0.5rem,0.5vw,0.75rem)]">
                 {skills.map((skill) => (
                   <span
                     key={skill}
-                    className="bg-red-800/10 px-3 py-1 text-xs font-normal font-yu-gothic text-red-800"
+                    className=" bg-red-800/10
+          px-[clamp(0.75rem,0.7vw,1.125rem)]
+          py-[clamp(0.25rem,0.3vw,0.5rem)]
+          font-yu-gothic text-[0.85em]
+          font-normal text-red-800"
                   >
                     {skill}
                   </span>

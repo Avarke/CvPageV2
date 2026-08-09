@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring } from "motion/react"
-import type { MouseEvent, ReactNode } from 'react'
+import type { MouseEvent } from 'react'
 
 
 type DetailCardProps = {

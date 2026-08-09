@@ -51,7 +51,7 @@ export function SidebarDrawer({
           transition-transform duration-500 ease-in-out
           ${isOpen
             ? 'translate-y-0'
-            : 'translate-y-[calc(100%_-_0.75rem)]'
+            : 'translate-y-[calc(100%-0.75rem)]'
           }
         `}
       >
@@ -67,7 +67,7 @@ export function SidebarDrawer({
               className="
                 absolute top-4 right-4 z-30
                 flex h-10 w-10 items-center justify-center
-                border-2 border-white/40 bg-zinc-900/60
+                border border-white/40 
                 text-white transition-colors
                 hover:border-red-800 hover:bg-red-800
                 focus-visible:outline-none focus-visible:ring-2
@@ -78,7 +78,8 @@ export function SidebarDrawer({
             </button>
           )}
 
-          <div className="min-h-full p-6 pt-16">
+          <div className="min-h-full">
+            {/* <div className="min-h-full p-6 pt-16"> */}
             {children}
           </div>
         </div>
@@ -108,7 +109,7 @@ export function SidebarDrawer({
         className="absolute inset-y-0 right-full z-30"
       >
         <div className="absolute inset-0 overflow-hidden bg-zinc-800 text-white">
-          <div className="absolute inset-y-0 right-0 w-125 overflow-y-auto p-8">
+          <div className="absolute inset-y-0 right-0 w-125 overflow-y-auto">
             {children}
           </div>
         </div>

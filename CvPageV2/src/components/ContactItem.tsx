@@ -43,7 +43,7 @@ export function ContactItem({ label, href, kanji, copyValue, copied = false, onC
       className="
     relative grid grid-cols-[4.5rem_1fr] items-baseline gap-3
     border-b border-zinc-300 pb-3
-    after:pointer-events-none after:absolute after:bottom-[-1px]
+    after:pointer-events-none after:absolute after:-bottom-px
     after:left-1/2 after:h-px after:w-3/4 after:-translate-x-1/2
     after:bg-linear-to-r after:from-transparent after:via-white/90
     after:to-transparent after:content-['']

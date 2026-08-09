@@ -5,9 +5,10 @@ type CvSectionProps = {
   title: ReactNode
   kanji?: string
   children: ReactNode
+  size?: 'default' | 'compact'
 }
 
-export function CvSection({ title, kanji, children }: CvSectionProps) {
+export function CvSection({ title, kanji, children, size= 'default' }: CvSectionProps) {
   const x = useSpring(useMotionValue(0), {
     stiffness: 120,
     damping: 18,
@@ -51,7 +52,19 @@ export function CvSection({ title, kanji, children }: CvSectionProps) {
 
   return (
     <motion.section
-      className="relative flex min-h-0 flex-col justify-center border border-zinc-300 bg-white/75 p-4 shadow-lg transition-shadow duration-300 will-change-transform hover:z-10 hover:shadow-2xl"
+      className={`relative flex
+    flex-col justify-start
+    border border-zinc-300 bg-white/75
+    p-[clamp(1rem,1.1vw,2rem)]
+    shadow-lg transition-shadow duration-300
+    will-change-transform
+    hover:z-10 hover:shadow-2xl
+    ${
+      size == 'compact'
+        ? 'min-h-[clamp(9rem,7vw,13rem)]'
+        : 'min-h-[clamp(11rem,12vw,22rem)]'
+    }
+    `}
       onMouseMove={followMouse}
       onMouseLeave={resetPosition}
       whileHover={{ scale: 1.010 }} // cia galima pakeisti scale
@@ -63,10 +76,14 @@ export function CvSection({ title, kanji, children }: CvSectionProps) {
         transformPerspective: 900,
       }}
     >
-      <h2 className="mb-5 origin-top scale-y-[1.6] font-matisse text-lg font-semibold uppercase text-red-800">
+      <h2 className="mb-[clamp(1.25rem,1.3vw,2.25rem)]
+      origin-top scale-y-[1.6]
+      font-matisse
+      text-[clamp(1.125rem,1.15vw,2rem)]
+      font-semibold uppercase text-red-800">
         {kanji ? (
-          <div className="flex w-full items-baseline gap-4 pb-0.75">
-            <div className="tracking-tight ">
+          <div className="flex w-full items-baseline gap-2">
+            <div className="tracking-tight whitespace-nowrap">
               {title}
             </div>
             <span
@@ -75,14 +92,20 @@ export function CvSection({ title, kanji, children }: CvSectionProps) {
             >
               {kanji}
             </span>
-            
-            
+
+
           </div>
         ) : (
           title
         )}
       </h2>
-      {children}
+      <div
+        className="
+      text-[clamp(0.875rem,0.75vw,1.125rem)]
+      leading-[1.55]
+    "
+      >{children}</div>
+
     </motion.section>
   )
 }
