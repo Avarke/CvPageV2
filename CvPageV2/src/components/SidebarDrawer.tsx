@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react'
-import { easeInOut, motion } from 'motion/react'
+import { easeInOut, motion, AnimatePresence } from 'motion/react'
 import { FiX } from 'react-icons/fi'
 
 type SidebarDrawerProps = {
@@ -87,24 +87,34 @@ export function SidebarDrawer({
   }
 
   return (
-    <motion.section
-      initial={false}
-      animate={{
-        width: isOpen ? 500 : 0,
-        transition: {
-          duration: isOpen ? 0.5 : 0.4,
-          ease: easeInOut,
-        },
-      }}
-      className="absolute inset-y-0 right-full z-30"
-    >
-      <div className="absolute inset-0 overflow-hidden bg-zinc-800 text-white">
-        <div className="absolute inset-y-0 right-0 w-125 overflow-y-auto p-8">
-          {children}
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.section
+        key={activeSection ?? 'closed'}
+        initial={{ width: 0 }}
+        animate={{
+          width: isOpen ? 500 : 0,
+          transition: {
+            duration: isOpen ? 0.5 : 0,
+            ease: easeInOut,
+          },
+        }}
+        exit={{
+          width: 0,
+          transition: {
+            duration: 0.4,
+            ease: easeInOut,
+          },
+        }}
+        className="absolute inset-y-0 right-full z-30"
+      >
+        <div className="absolute inset-0 overflow-hidden bg-zinc-800 text-white">
+          <div className="absolute inset-y-0 right-0 w-125 overflow-y-auto p-8">
+            {children}
+          </div>
         </div>
-      </div>
 
-      <div className="absolute inset-y-0 right-full z-20 w-3 bg-red-800" />
-    </motion.section>
+        <div className="absolute inset-y-0 right-full z-20 w-3 bg-red-800" />
+      </motion.section>
+    </AnimatePresence>
   )
 }
