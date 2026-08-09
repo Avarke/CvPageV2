@@ -70,7 +70,7 @@ function App() {
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
       <BackgroundCarousel images={backgroundImages} />
 
-      <div className="fixed inset-0 z-50 w-full sm:inset-y-0 sm:right-0 sm:left-auto sm:w-[max(33.333vw,30rem)]">
+      <div className="fixed inset-0 z-50 w-full sm:inset-y-0 sm:right-0 sm:left-auto sm:w-[max(33.333vw,30rem)] lg:w-[clamp(30rem,33.333vw,42rem)]">
         <SidebarDrawer
           activeSection={activeSection}
           onClose={() => setActiveSection(null)}
@@ -167,7 +167,7 @@ function App() {
                     Vaškiavičius
                   </h1>
 
-                  <p className="origin-top scale-y-[1.40] font-yu-gothic text-sm font-bold tracking-normal text-stone-300 uppercase sm:text-[clamp(0.875rem,3cqw,1.25rem)]">
+                  <p className="origin-top scale-y-[1.40] font-yu-gothic text-sm font-bold tracking-normal text-stone-300 uppercase sm:text-[clamp(1rem,3cqw,1.25rem)]">
                     Junior Developer
                   </p>
                 </div>
@@ -208,7 +208,7 @@ function App() {
                     visible={hoveredSocial === 'Linkedin'}
                   />
 
-                  <Button asChild size="icon" className="h-9 w-9">
+                  <Button asChild size="iconSm">
                     <a
                       href={linkedInUrl}
                       target="_blank"
@@ -229,7 +229,7 @@ function App() {
                     visible={hoveredSocial === 'GitHub'}
                   />
 
-                  <Button asChild size="icon" className="h-9 w-9">
+                  <Button asChild size="iconSm">
                     <a
                       href={githubUrl}
                       target="_blank"

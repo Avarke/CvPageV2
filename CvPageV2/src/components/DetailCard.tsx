@@ -105,7 +105,7 @@ export function DetailCard({
                 </span>
             )}
 
-            <span className="relative z-10 mt-auto font-matisse origin-bottom scale-y-[2] text-[clamp(0.875rem,7cqw,2rem)] font-semibold tracking-wider uppercase">
+            <span className="relative z-10 mt-auto font-matisse origin-bottom scale-y-[1.6] text-cv-section-title font-semibold tracking-tight uppercase">
                 {title}
             </span>
         </motion.button>

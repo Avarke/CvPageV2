@@ -40,13 +40,13 @@ export function DrawerTitle({
                     playsInline
                     preload="metadata"
                     aria-hidden="true"
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover mb-2"
                 />
             )}
 
             {/* <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-black/10" /> */}
             {/* <div className="absolute inset-0 z-10 grid place-items-center "></div> */}
-            <div className="absolute inset-0 bg-black/75" />
+            <div className="absolute -inset-1 bg-black/75" />
             <h1
                 className="
                 relative z-10
@@ -59,7 +59,8 @@ export function DrawerTitle({
             >
 
                 {/* text-[clamp(2.25rem,8vw,4.5rem)] */}
-                <span className="inline-block tracking-tight origin-center scale-y-[4.5] text-white/90">
+                <span className="inline-block tracking-tight 
+                origin-center scale-y-[4.7] scale-x-[1.4] text-white/95  sm:scale-x-[1.3] sm:scale-y-[4.5]">
                     {title}
                 </span>
 

@@ -55,7 +55,7 @@ export function CvSection({ title, kanji, children, size= 'default' }: CvSection
       className={`relative flex
     flex-col justify-start
     border border-zinc-300 bg-white/75
-    p-[clamp(1rem,1.1vw,2rem)]
+    p-[clamp(1rem,1vw,1.5rem)]
     shadow-lg transition-shadow duration-300
     will-change-transform
     hover:z-10 hover:shadow-2xl
@@ -76,13 +76,13 @@ export function CvSection({ title, kanji, children, size= 'default' }: CvSection
         transformPerspective: 900,
       }}
     >
-      <h2 className="mb-[clamp(1.25rem,1.3vw,2.25rem)]
+      <h2 className="mb-[clamp(1.25rem,1.3vw,1.5rem)]
       origin-top scale-y-[1.6]
       font-matisse
-      text-[clamp(1.125rem,1.15vw,2rem)]
+      text-cv-section-title
       font-semibold uppercase text-red-800">
         {kanji ? (
-          <div className="flex w-full items-baseline gap-2">
+          <div className="flex w-full items-baseline gap-2 pb-1">
             <div className="tracking-tight whitespace-nowrap">
               {title}
             </div>
@@ -101,8 +101,9 @@ export function CvSection({ title, kanji, children, size= 'default' }: CvSection
       </h2>
       <div
         className="
-      text-[clamp(0.875rem,0.75vw,1.125rem)]
+      text-body
       leading-[1.55]
+      
     "
       >{children}</div>
 

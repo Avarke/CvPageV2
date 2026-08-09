@@ -65,7 +65,7 @@ export function SidebarDrawer({
               onClick={onClose}
               aria-label="Close drawer"
               className="
-                absolute top-4 right-4 z-30
+                absolute top-1 right-1 z-30
                 flex h-10 w-10 items-center justify-center
                 border border-white/40 
                 text-white transition-colors

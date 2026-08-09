@@ -222,6 +222,34 @@
   --color-border: rgba(148, 163, 184, 0.22);
   --color-card: #111111;
   --color-ring: #0ea5e9;
+
+  /* Typography */
+
+  --text-body: clamp(1rem, 0.82rem + 0.25vw, 1.5rem);
+  --text-body--line-height: 1.6;
+
+  --text-small: clamp(0.75rem, 0.72rem + 0.15vw, 0.875rem);
+  --text-small--line-height: 1.5;
+
+  --text-section-title: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  --text-section-title--line-height: 1.15;
+
+ --text-cv-section-title: clamp(1.125rem, 0.92rem + 0.85vw, 1.75rem);
+  --text-cv-section-title--line-height: 1.15;
+
+  --text-drawer-title: clamp(1.75rem, 1.35rem + 1.5vw, 2.75rem);
+  --text-drawer-title--line-height: 1.1;
+
+  --text-display: clamp(2.25rem, 1.4rem + 3.5vw, 4.5rem);
+  --text-display--line-height: 0.95;
+
+  /* Content widths */
+  --container-reading: 42rem;
+  --container-drawer: 32rem;
+
+  /* Repeated element sizes */
+  --spacing-profile: clamp(5rem, 8vw, 7rem);
+
 }
 
 :root {

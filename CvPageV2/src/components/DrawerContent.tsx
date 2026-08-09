@@ -12,10 +12,12 @@ export function DrawerContent({
   children,
 }: DrawerContentProps) {
   return (
-    <section className="border-b border-white/20 px-6 py-7 sm:px-8">
-      <header className="mb-5">
+    <section className="border-b border-white/20 px-[clamp(1.25rem,1.5vw,2.5rem)]
+    pt-8
+    pb-[clamp(1.5rem,2vw,3rem)]">
+      <header className="mb-[clamp(1.25rem,1.5vw,2.25rem)]">
         <h2 className="mb-1 origin-bottom scale-y-[1.50] font-ep-kaisho text-3xl leading-none
-         font-semibold tracking-normal text-white sm:text-[clamp(1rem,8cqw,2rem)]">          
+         font-semibold tracking-normal text-white mb-[clamp(0.25rem,0.4vw,0.75rem)]   text-[clamp(1.75rem,1.8vw,3rem)]">          
           {title}
         </h2>
 
@@ -29,7 +31,9 @@ export function DrawerContent({
 
       <div
         className="
-          space-y-4 font-yu-gothic
+        text-[clamp(1rem,0.75vw,1.125rem)]
+              space-y-[clamp(1rem,1vw,1.5rem)]
+               font-yu-gothic
           text-sm leading-6 text-zinc-300
           [&_img]:h-auto [&_img]:w-full
           [&_img]:object-cover
