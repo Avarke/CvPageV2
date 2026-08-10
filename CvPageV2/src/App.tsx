@@ -1,5 +1,5 @@
 import { BackgroundCarousel } from './components/BackgroundCarousel'
-import { useState, type ReactNode } from 'react'
+import { useState, useEffect, type ReactNode } from 'react'
 import { SidebarDrawer } from './components/SidebarDrawer'
 import profilePicture from './assets/profile/unnamed.webp'
 import { Button } from './components/Button'
@@ -33,6 +33,35 @@ const githubUrl = 'https://github.com/Avarke'
 
 
 function App() {
+
+  useEffect(() => {
+  let preloader: HTMLVideoElement | null = null
+
+  function preloadVideo() {
+    preloader = document.createElement('video')
+    preloader.src = hobbiesVideo
+    preloader.preload = 'auto'
+    preloader.muted = true
+    preloader.playsInline = true
+    preloader.load()
+  }
+
+  if (document.readyState === 'complete') {
+    preloadVideo()
+  } else {
+    window.addEventListener('load', preloadVideo, { once: true })
+  }
+
+  return () => {
+    window.removeEventListener('load', preloadVideo)
+
+    if (preloader) {
+      preloader.pause()
+      preloader.removeAttribute('src')
+      preloader.load()
+    }
+  }
+}, [])
 
   const [copiedContact, setCopiedContact] = useState<string | null>(null)
   const [hoveredSocial, setHoveredSocial] = useState<string | null>(null)
