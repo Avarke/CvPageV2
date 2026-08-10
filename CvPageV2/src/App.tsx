@@ -14,7 +14,7 @@ import { DrawerContent } from './components/DrawerContent'
 import hobbiesVideo from './assets/videos/Manga_2.mp4'
 import davinciTimeline from './assets/misc/davinci_timeline_render.png'
 import { ToolLink } from './components/ToolLink'
-import hobbiesPic from './assets/hobbies/IMG_3829.jpeg'
+import hobbiesPic from './assets/hobbies/IMG_3829.webp'
 import mangaPic from './assets/misc/cb5b4a302ifa1.jpg'
 type DrawerSection = 'experience' | 'projects' | 'hobbies' | 'untitled' | null
 
@@ -29,10 +29,47 @@ const skills = ['React', 'TypeScript', 'Tailwind CSS', 'C#', '.NET', 'SQL', 'Pyt
 const linkedInUrl = 'https://www.linkedin.com/in/arijus-vaskiavicius/'
 const githubUrl = 'https://github.com/Avarke'
 
-
+const drawerImages = [
+  davinciTimeline,
+  hobbiesPic,
+  mangaPic,
+]
 
 
 function App() {
+
+
+  useEffect(() => {
+  const preloadedImages: HTMLImageElement[] = []
+
+  function preloadDrawerImages() {
+    drawerImages.forEach((src) => {
+      const image = new Image()
+
+      image.fetchPriority = 'low'
+      image.decoding = 'async'
+      image.src = src
+
+      // Download and decode before the drawer opens
+      image.decode().catch(() => undefined)
+
+      preloadedImages.push(image)
+    })
+  }
+
+  if (document.readyState === 'complete') {
+    preloadDrawerImages()
+  } else {
+    window.addEventListener('load', preloadDrawerImages, {
+      once: true,
+    })
+  }
+
+  return () => {
+    window.removeEventListener('load', preloadDrawerImages)
+    preloadedImages.length = 0
+  }
+}, [])
 
   useEffect(() => {
   let preloader: HTMLVideoElement | null = null
