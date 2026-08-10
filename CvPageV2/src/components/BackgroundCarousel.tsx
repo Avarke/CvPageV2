@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'motion/react'
-import { useEffect, useState } from 'react' 
+import { useEffect, useState } from 'react'
 
 type BackgroundCarouselProps = {
   images: string[]
@@ -12,7 +12,7 @@ function shuffleArray<T>(items: T[]) {
 
   for (let index = nextItems.length - 1; index > 0; index -= 1) {
     const swapIndex = Math.floor(Math.random() * (index + 1))
-    ;[nextItems[index], nextItems[swapIndex]] = [nextItems[swapIndex], nextItems[index]]
+      ;[nextItems[index], nextItems[swapIndex]] = [nextItems[swapIndex], nextItems[index]]
   }
 
   return nextItems
@@ -26,7 +26,28 @@ export function BackgroundCarousel({
   const [order, setOrder] = useState<string[]>([])
   const [activeIndex, setActiveIndex] = useState(0)
 
+
   useEffect(() => {
+    const preloadedImages = images.map((src) => {
+      const image = new Image()
+
+      image.src = src
+      image.decoding = 'async'
+
+      return image
+    })
+
+    return () => {
+      preloadedImages.forEach((image) => {
+        image.onload = null
+        image.onerror = null
+      })
+    }
+  }, [images])
+
+  useEffect(() => {
+
+
     if (!images.length) {
       return undefined
     }
@@ -57,8 +78,8 @@ export function BackgroundCarousel({
           src={order[activeIndex] ?? images[activeIndex]}
           alt=""
           aria-hidden="true"
-          initial={{ opacity: 0}}
-          animate={{ opacity: 1}}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5, ease: 'easeInOut' }}
           className="absolute inset-0 h-full w-full object-cover"

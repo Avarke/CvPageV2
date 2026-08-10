@@ -56,7 +56,7 @@
 
 @font-face {
   font-family: 'FOT Matisse Pro';
-  src: url('./assets/fonts/FOT-Matisse Pro EB.otf') format('opentype');
+  src: url('./assets/fonts/FOT-Matisse Pro EB.woff2') format('opentype');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -64,7 +64,7 @@
 
 @font-face {
   font-family: 'FOT New Cezanne Pro';
-  src: url('./assets/fonts/FOT-NewCezanne Pro DB.otf') format('opentype');
+  src: url('./assets/fonts/FOT-NewCezanne Pro DB.woff2') format('opentype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
