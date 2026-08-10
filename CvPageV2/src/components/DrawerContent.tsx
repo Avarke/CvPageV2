@@ -110,24 +110,26 @@ export function DrawerContent({
           <h2 className="origin-bottom 
          scale-y-[1.50] font-ep-kaisho text-3xl leading-none
          font-semibold tracking-normal text-white 
-         mb-[clamp(0.25rem,0.1vw,0.5rem)]   
+         mb-[clamp(0.3rem,0.1vw,0.5rem)]   
          text-cv-section-title">
 
             {kanji ? (
               <span className="inline-flex items-baseline gap-2 whitespace-nowrap">
-                <span className="whitespace-nowrap tracking-tight">
+                <span className="whitespace-nowrap tracking-tight text-3xl ">
                   {title}
                 </span>
 
                 <span
                   aria-hidden="true"
-                  className="shrink-0 whitespace-nowrap"
+                  className="shrink-0 whitespace-nowrap text-xl"
                 >
                   {kanji}
                 </span>
               </span>
             ) : (
-              title
+              <span className="whitespace-nowrap tracking-tight text-3xl ">
+                  {title}
+                </span>
             )}
           </h2>
 

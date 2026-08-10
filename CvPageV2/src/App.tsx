@@ -112,7 +112,7 @@ function App() {
               <DrawerContent title="Video Editing" subtitle="Moving Pictures" kanji="編集" image={davinciTimeline}>
                 <p className="font-mono text-[0.95rem] leading-[1.55] text">
                   I like editing and composing videos. I have {''}
-                  <strong className="text-amber-100">
+                  <strong className="text-stone-100">
                     4+ years worth of
                     experience and know-how
                   </strong>
@@ -251,12 +251,12 @@ function App() {
                   猫
                 </span>
                 <div className="absolute inset-x-0 bottom-0 p-6 sm:p-[clamp(1.75rem,6cqw,3rem)]">
-                  <h1 className="mb-1 origin-bottom scale-y-[1.50] font-ep-kaisho text-3xl leading-none tracking-normal font-semibold sm:text-[clamp(3rem,10cqw,5rem)]">
+                  <h1 className="mb-1 origin-bottom scale-y-[1.50] font-ep-kaisho text-5xl leading-none tracking-normal font-semibold sm:text-[clamp(3rem,10cqw,5rem)]">
                     Arijus <br />
                     Vaškiavičius
                   </h1>
 
-                  <p className="origin-top scale-y-[1.40] font-yu-gothic text-sm font-bold tracking-normal text-stone-300 uppercase sm:text-[clamp(1rem,3cqw,1.25rem)]">
+                  <p className="origin-top scale-y-[1.40] font-yu-gothic text-sm font-bold tracking-normal text-stone-300 uppercase sm:text-[clamp(1rem,3cqw,1.25rem)] text-[clamp(1rem,4cqw,1.25rem)]">
                     Junior Developer
                   </p>
                 </div>

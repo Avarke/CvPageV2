@@ -79,7 +79,7 @@ export function CvSection({ title, kanji, children, size= 'default' }: CvSection
       <h2 className="mb-[clamp(1.25rem,1.3vw,1.5rem)]
       origin-top scale-y-[1.6]
       font-matisse
-      text-cv-section-title
+      text-2xl
       font-semibold uppercase text-red-800">
         {kanji ? (
           <div className="flex w-full items-baseline gap-2 pb-1">
