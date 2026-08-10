@@ -12,7 +12,6 @@ import { DetailCard } from './components/DetailCard'
 import { DrawerTitle } from './components/DrawerTitle'
 import { DrawerContent } from './components/DrawerContent'
 import hobbiesVideo from './assets/videos/Manga_1.mov'
-import editingImage from './assets/background/DSCF2088.jpg'
 import davinciTimeline from './assets/misc/davinci_timeline_render.png'
 import { ToolLink } from './components/ToolLink'
 import hobbiesPic from './assets/hobbies/IMG_3829.jpeg'
@@ -37,10 +36,7 @@ function App() {
 
   const [copiedContact, setCopiedContact] = useState<string | null>(null)
   const [hoveredSocial, setHoveredSocial] = useState<string | null>(null)
-  const contactItemClassName =
-    '-mx-3 flex w-fit items-center gap-3 rounded-full px-4 py-1 text-left text-sm text-slate-200'
-  const contactButtonClassName =
-    `${contactItemClassName} cursor-pointer outline outline-1 outline-transparent transition-[background-color,outline-color] duration-200 ease-out hover:bg-slate-900/40 hover:outline-slate-700`  // Handle copying contact information to clipboard
+
   const handleCopy = async (value: string) => {
     try {
       await navigator.clipboard.writeText(value)
@@ -113,7 +109,7 @@ function App() {
                   src: hobbiesVideo,
                 }}
               />
-              <DrawerContent title="Video Editing" subtitle="Moving Pictures" image={davinciTimeline}>
+              <DrawerContent title="Video Editing" subtitle="Moving Pictures" kanji="編集" image={davinciTimeline}>
                 <p className="font-mono text-[0.95rem] leading-[1.55] text">
                   I like editing and composing videos. I have {''}
                   <strong className="text-amber-100">
@@ -136,7 +132,7 @@ function App() {
                 /> */}
               </DrawerContent>
 
-              <DrawerContent title="Photography" subtitle="Not moving pictures">
+              <DrawerContent title="Photography" kanji="撮影" subtitle="Not moving pictures">
                 <div className="flow-root">
                   <img
                     src={hobbiesPic}

@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 type DrawerContentProps = {
   title: string
   subtitle: string
+  kanji?: string
   image?: string
   children: ReactNode
 }
@@ -11,6 +12,7 @@ type DrawerContentProps = {
 export function DrawerContent({
   title,
   subtitle,
+  kanji,
   image,
   children,
 }: DrawerContentProps) {
@@ -110,7 +112,23 @@ export function DrawerContent({
          font-semibold tracking-normal text-white 
          mb-[clamp(0.25rem,0.1vw,0.5rem)]   
          text-cv-section-title">
-            {title}
+
+            {kanji ? (
+              <span className="inline-flex items-baseline gap-2 whitespace-nowrap">
+                <span className="whitespace-nowrap tracking-tight">
+                  {title}
+                </span>
+
+                <span
+                  aria-hidden="true"
+                  className="shrink-0 whitespace-nowrap"
+                >
+                  {kanji}
+                </span>
+              </span>
+            ) : (
+              title
+            )}
           </h2>
 
           {subtitle && (
