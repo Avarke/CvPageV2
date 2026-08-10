@@ -11,7 +11,7 @@ import { ContactItem } from './components/ContactItem'
 import { DetailCard } from './components/DetailCard'
 import { DrawerTitle } from './components/DrawerTitle'
 import { DrawerContent } from './components/DrawerContent'
-import hobbiesVideo from './assets/videos/Manga_2.mp4'
+import hobbiesVideo from './assets/videos/Manga 2(2).mp4'
 import davinciTimeline from './assets/misc/davinci_timeline_render.png'
 import { ToolLink } from './components/ToolLink'
 import hobbiesPic from './assets/hobbies/IMG_3829.webp'
@@ -39,66 +39,7 @@ const drawerImages = [
 function App() {
 
 
-  useEffect(() => {
-  const preloadedImages: HTMLImageElement[] = []
-
-  function preloadDrawerImages() {
-    drawerImages.forEach((src) => {
-      const image = new Image()
-
-      image.fetchPriority = 'low'
-      image.decoding = 'async'
-      image.src = src
-
-      // Download and decode before the drawer opens
-      image.decode().catch(() => undefined)
-
-      preloadedImages.push(image)
-    })
-  }
-
-  if (document.readyState === 'complete') {
-    preloadDrawerImages()
-  } else {
-    window.addEventListener('load', preloadDrawerImages, {
-      once: true,
-    })
-  }
-
-  return () => {
-    window.removeEventListener('load', preloadDrawerImages)
-    preloadedImages.length = 0
-  }
-}, [])
-
-  useEffect(() => {
-  let preloader: HTMLVideoElement | null = null
-
-  function preloadVideo() {
-    preloader = document.createElement('video')
-    preloader.src = hobbiesVideo
-    preloader.preload = 'auto'
-    preloader.muted = true
-    preloader.playsInline = true
-    preloader.load()
-  }
-
-  if (document.readyState === 'complete') {
-    preloadVideo()
-  } else {
-    window.addEventListener('load', preloadVideo, { once: true })
-  }
-
-  return () => {
-    window.removeEventListener('load', preloadVideo)
-
-    if (preloader) {
-      preloader.pause()
-      preloader.removeAttribute('src')
-      preloader.load()
-    }
-  }
-}, [])
+  
 
   const [copiedContact, setCopiedContact] = useState<string | null>(null)
   const [hoveredSocial, setHoveredSocial] = useState<string | null>(null)
