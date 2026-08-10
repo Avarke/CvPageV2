@@ -1,7 +1,7 @@
 import { BackgroundCarousel } from './components/BackgroundCarousel'
 import { useState, type ReactNode } from 'react'
 import { SidebarDrawer } from './components/SidebarDrawer'
-import profilePicture from './assets/profile/unnamed.jpg'
+import profilePicture from './assets/profile/unnamed.webp'
 import { Button } from './components/Button'
 import { CvSection } from './components/CvSection'
 import { FiLinkedin, FiGithub } from 'react-icons/fi'
@@ -224,8 +224,10 @@ function App() {
             {/* Foto, name ir contact section */}
             <section className="group relative overflow-hidden @container text-white/95">
               <img
+                fetchPriority="high"
                 src={profilePicture}
-                alt=""
+                loading="eager"
+                decoding="async"
                 className="h-full w-full object-cover transition-transform duration-500 ease-out scale-[1.1] group-hover:scale-[1.15]"
               />
 

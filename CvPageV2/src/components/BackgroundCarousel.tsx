@@ -20,7 +20,7 @@ function shuffleArray<T>(items: T[]) {
 
 export function BackgroundCarousel({
   images,
-  intervalMs = 10000,
+  intervalMs = 15000,
   className = '',
 }: BackgroundCarouselProps) {
   const [order, setOrder] = useState<string[]>([])
@@ -28,22 +28,17 @@ export function BackgroundCarousel({
 
 
   useEffect(() => {
-    const preloadedImages = images.map((src) => {
-      const image = new Image()
+  if (!order.length) {
+    return
+  }
 
-      image.src = src
-      image.decoding = 'async'
+  const nextIndex = (activeIndex + 1) % order.length
+  const nextImage = new Image()
 
-      return image
-    })
-
-    return () => {
-      preloadedImages.forEach((image) => {
-        image.onload = null
-        image.onerror = null
-      })
-    }
-  }, [images])
+  nextImage.fetchPriority = 'low'
+  nextImage.decoding = 'async'
+  nextImage.src = order[nextIndex]
+}, [activeIndex, order])
 
   useEffect(() => {
 
@@ -76,6 +71,7 @@ export function BackgroundCarousel({
         <motion.img
           key={order[activeIndex] ?? images[activeIndex]}
           src={order[activeIndex] ?? images[activeIndex]}
+          fetchPriority={activeIndex === 0 ? 'high' : 'auto'}
           alt=""
           aria-hidden="true"
           initial={{ opacity: 0 }}
