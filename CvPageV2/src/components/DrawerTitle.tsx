@@ -44,7 +44,7 @@ export function DrawerTitle({
                     muted
                     loop
                     playsInline
-                    preload="metadata"
+                    preload="auto"
                     aria-hidden="true"
                     className="absolute inset-0 h-full w-full object-cover"
                 />
