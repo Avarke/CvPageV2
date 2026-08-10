@@ -13,7 +13,10 @@ import { DrawerTitle } from './components/DrawerTitle'
 import { DrawerContent } from './components/DrawerContent'
 import hobbiesVideo from './assets/videos/Manga_1.mov'
 import editingImage from './assets/background/DSCF2088.jpg'
+import davinciTimeline from './assets/misc/davinci_timeline_render.png'
 import { ToolLink } from './components/ToolLink'
+import hobbiesPic from './assets/hobbies/IMG_3829.jpeg'
+import mangaPic from './assets/misc/cb5b4a302ifa1.jpg'
 type DrawerSection = 'experience' | 'projects' | 'hobbies' | 'untitled' | null
 
 const backgroundImages = Object.values(
@@ -76,17 +79,29 @@ function App() {
           onClose={() => setActiveSection(null)}
         >
           {activeSection === 'experience' && (
-            <div>
-              <h2 className="text-2xl">About</h2>
-              <p>About section content.</p>
-            </div>
+            <article>
+              <DrawerTitle
+                title="Experience"
+                media={{type: 'video',src: hobbiesVideo }}
+                titleClassName="sm:scale-x-[1.025]"
+                
+              />
+
+
+            </article>
           )}
 
           {activeSection === 'projects' && (
-            <div>
-              <h2 className="text-2xl">Skills</h2>
-              <p>Skills section content.</p>
-            </div>
+            <article>
+              <DrawerTitle
+                title="Projects"
+                media={{
+                  type: 'video',
+                  src: hobbiesVideo,
+                }}
+              />
+            </article>
+
           )}
 
           {activeSection === 'hobbies' && (
@@ -98,11 +113,14 @@ function App() {
                   src: hobbiesVideo,
                 }}
               />
-
-              <DrawerContent title="Video Editing" subtitle="Moving Pictures">
-                <p className="font-mono text-sm text">
-                  I like editing and composing videos. I have 4+ years worth of
-                  experience and know-how working on personal projects using {''}
+              <DrawerContent title="Video Editing" subtitle="Moving Pictures" image={davinciTimeline}>
+                <p className="font-mono text-[0.95rem] leading-[1.55] text">
+                  I like editing and composing videos. I have {''}
+                  <strong className="text-amber-100">
+                    4+ years worth of
+                    experience and know-how
+                  </strong>
+                  {''} working on personal projects using {''}
                   <ToolLink href="https://www.adobe.com/products/premiere.html">
                     Adobe PremierePro
                   </ToolLink>
@@ -112,7 +130,6 @@ function App() {
                   </ToolLink>
                   . Who knows what the future holds...
                 </p>
-
                 {/* <img
                   src={editingImage}
                   alt="Video editing project"
@@ -120,9 +137,74 @@ function App() {
               </DrawerContent>
 
               <DrawerContent title="Photography" subtitle="Not moving pictures">
-                <p>
-                  Photography helps me explore composition, lighting and colour.
-                </p>
+                <div className="flow-root">
+                  <img
+                    src={hobbiesPic}
+                    alt="Camera"
+                    className="
+                      float-right
+                      ml-5 mb-1 mt-1
+                      h-auto
+                      w-30 sm:w-30
+                      opacity-70
+                      object-contain
+                      "
+                  />
+                  <p className="font-mono text-[0.95rem] leading-[1.55] text">
+                    I like to photograph in my free time. Usually it's landscapes, sometimes it's people.
+                    In fact, the images you see on the left are actually all original (if you are on desktop version, that is).
+                    Working with images led me to gain fundamental knowledge of {''}
+                    <ToolLink href="https://www.adobe.com/products/photoshop.html">
+                      Adobe Photoshop
+                    </ToolLink>
+                    {''} and {''}
+                    <ToolLink href="https://lightroom.adobe.com/">
+                      Adobe Lightroom
+                    </ToolLink>
+                    .
+                  </p>
+                </div>
+              </DrawerContent>
+
+              <DrawerContent title="Japan" subtitle="How could you tell?" image={mangaPic}>
+
+                <div className="flow-root">
+
+                  <p className="font-mono text-[0.95rem] leading-[1.55] text">
+                    You may have noticed i quite like things from the japanese culture.
+                    Specifically manga, anime and history. I am fascinated by the works
+                    of {''}
+                    <ToolLink href="https://tsutomu-nihei.fandom.com/wiki/Tsutomu_Nihei">
+                      Tsutomu Nihei
+                    </ToolLink>
+                    , {''}
+                    <ToolLink href="https://www.youtube.com/watch?v=BJUbLM8coho">
+                      Tatsuki Fujimoto
+                    </ToolLink>
+                    , {''}
+                    <ToolLink href="https://en.wikipedia.org/wiki/Shinichir%C5%8D_Watanabe">
+                      Shinichiro Watanabe
+                    </ToolLink>
+                    {''} and {''}
+                    <ToolLink href="https://en.wikipedia.org/wiki/Hideaki_Anno">
+                      Hideaki Anno
+                    </ToolLink>
+                    {''} (for god's sake the whole page is Evangelion themed).
+                    Favourite manga? {''}
+                    <ToolLink href="https://myanimelist.net/manga/149/Blame">
+                      Blame
+                    </ToolLink>
+                    . Favourite anime? {''}
+                    <ToolLink href="https://myanimelist.net/anime/205/Samurai_Champloo">
+                      Samurai Champloo
+                    </ToolLink>
+                    .
+                  </p>
+                </div>
+                {/* <img
+                  src={editingImage}
+                  alt="Video editing project"
+                /> */}
               </DrawerContent>
 
 
@@ -130,10 +212,13 @@ function App() {
           )}
 
           {activeSection === 'untitled' && (
-            <div>
-              <h2 className="text-2xl">Contact</h2>
-              <p>Contact section content.</p>
-            </div>
+            <DrawerTitle
+                title="Education"
+                media={{
+                  type: 'video',
+                  src: hobbiesVideo,
+                }}
+              />
           )}
         </SidebarDrawer>
 
@@ -256,6 +341,7 @@ function App() {
             <CvSection
               kanji="手蔓"
               title="Contact"
+              size="compact"
             >
               <address className="space-y-4 not-italic">
                 <ContactItem label="Phone" href="tel:+37060000000" kanji="電話" copyValue='+37069969444' copied={copiedContact === '+37069969444'} onCopy={handleCopy}>

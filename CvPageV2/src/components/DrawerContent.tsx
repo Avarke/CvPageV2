@@ -3,54 +3,137 @@ import type { ReactNode } from 'react'
 type DrawerContentProps = {
   title: string
   subtitle: string
+  image?: string
   children: ReactNode
 }
+
 
 export function DrawerContent({
   title,
   subtitle,
+  image,
   children,
 }: DrawerContentProps) {
   return (
-    <section className="  px-[clamp(1.25rem,1.5vw,2.5rem)]
+    <section className="relative isolate overflow-hidden bg-zinc-800 px-[clamp(1.25rem,1.5vw,2.5rem)]
     pt-8
     pb-[clamp(1.5rem,2vw,3rem)]">
 
-      <div
-        aria-hidden="true"
-        className="mb-5 flex items-center gap-3"
-      >
-        <span className="h-0.5 w-8 bg-red-700" />
-        <span className="h-px flex-1 bg-white/15" />
-      </div>
-      <header className="mb-[clamp(1.25rem,1.5vw,2.0rem)]">
-        <h2 className="origin-bottom 
+      {image && (
+        <>
+          <img
+            src={image}
+            alt=""
+            aria-hidden="true"
+            className="
+          pointer-events-none
+          absolute inset-0 z-0
+          h-full w-full
+          object-cover object-center
+          opacity-100
+        "
+          />
+
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-[1] bg-zinc-800/75"
+          />
+
+          {/* Top fade */}
+          <div
+            aria-hidden="true"
+            className="
+        pointer-events-none
+        absolute inset-x-0 top-0 z-[2]
+        h-30
+        bg-linear-to-b
+        from-zinc-800
+         via-zinc-800/95
+        to-transparent
+      "
+          />
+
+          {/* Bottom fade */}
+          <div
+            aria-hidden="true"
+            className="
+        pointer-events-none
+        absolute inset-x-0 bottom-0 z-[2]
+        h-20
+        bg-linear-to-t
+        from-zinc-800
+        via-zinc-800/95
+        to-transparent
+      "
+          />
+
+          {/* Left fade */}
+          <div
+            aria-hidden="true"
+            className="
+        pointer-events-none
+        absolute inset-y-0 left-0 z-[2]
+        w-30
+        bg-linear-to-r
+        from-zinc-800
+        to-transparent
+      "
+          />
+
+          {/* Right fade */}
+          <div
+            aria-hidden="true"
+            className="
+        pointer-events-none
+        absolute inset-y-0 right-0 z-[2]
+        w-30
+        bg-linear-to-l
+        from-zinc-800
+        to-transparent
+      "
+          />
+
+        </>
+      )}
+
+      <div className="relative z-10">
+        <div
+          aria-hidden="true"
+          className="mb-5 flex items-center gap-3"
+        >
+          <span className="h-0.5 w-8 bg-red-700" />
+          <span className="h-px flex-1 bg-white/15" />
+        </div>
+        <header className="mb-[clamp(1.25rem,1.5vw,2.0rem)]">
+          <h2 className="origin-bottom 
          scale-y-[1.50] font-ep-kaisho text-3xl leading-none
          font-semibold tracking-normal text-white 
          mb-[clamp(0.25rem,0.1vw,0.5rem)]   
          text-cv-section-title">
-          {title}
-        </h2>
+            {title}
+          </h2>
 
-        {subtitle && (
-          <p className="origin-top scale-y-[1.40] font-yu-gothic text-sm font-bold tracking-normal
+          {subtitle && (
+            <p className="origin-top scale-y-[1.40] font-yu-gothic text-sm font-bold tracking-normal
            text-stone-300 uppercase  sm:text-[clamp(0.5rem,2.25cqw,0.85rem)]">
-            {subtitle}
-          </p>
-        )}
-      </header>
+              {subtitle}
+            </p>
+          )}
+        </header>
 
-      <div
-        className="
+        <div
+          className="
         text-[clamp(1rem,0.75vw,1.125rem)]
               space-y-[clamp(1rem,1vw,1.5rem)]
                font-yu-gothic
           leading-6 text-zinc-300
-          [&_img]:h-auto [&_img]:w-full
-          [&_img]:object-cover
+          [&>img]:h-auto
+          [&>img]:w-full
+          [&>img]:object-cover
         "
-      >
-        {children}
+        >
+          {children}
+        </div>
       </div>
     </section>
   )

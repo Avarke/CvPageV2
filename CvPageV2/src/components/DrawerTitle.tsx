@@ -1,4 +1,6 @@
 
+import { cn } from '../lib/utils'
+
 type DrawerMedia =
     | {
         type: 'image'
@@ -14,11 +16,15 @@ type DrawerMedia =
 type DrawerTitleProps = {
     title: string
     media?: DrawerMedia
+    titleClassName?: string
+    titleWrapperClassName?: string
 }
 
 export function DrawerTitle({
     title,
     media,
+    titleClassName,
+    titleWrapperClassName,
 }: DrawerTitleProps) {
     return (
         <header className="relative flex aspect-video w-full items-center justify-center overflow-hidden bg-zinc-950">
@@ -59,19 +65,39 @@ export function DrawerTitle({
             />
 
             <h1
-                className="
-                relative z-10
-            -translate-y-2.5 px-16 text-center
+                className={cn(
+                    `
+            relative z-10
+            -translate-y-2.5
+            px-16
+            text-center
             font-matisse
             text-[clamp(3rem,12vw,4.5rem)]
-            leading-none font-semibold
-            tracking-wider uppercase        
-      "
+            leading-none
+            font-semibold
+            tracking-wider
+            uppercase
+            `,
+                    titleWrapperClassName,
+                )}
             >
 
                 {/* text-[clamp(2.25rem,8vw,4.5rem)] */}
-                <span className="inline-block tracking-tight 
-                origin-center scale-y-[4.7] scale-x-[1.4] text-white/95  sm:scale-x-[1.3] sm:scale-y-[4.5]">
+                <span
+                    className={cn(
+                        `
+              inline-block
+              origin-center
+              scale-x-[1.4]
+              scale-y-[4.7]
+              tracking-tight
+              text-white/95
+              sm:scale-x-[1.3]
+              sm:scale-y-[4.5]
+            `,
+                        titleClassName,
+                    )}
+                >
                     {title}
                 </span>
 
