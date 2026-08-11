@@ -128,7 +128,7 @@ function App() {
                   
 
                 <p className="font-mono text-[0.95rem] leading-[1.55] text">
-                  I have various non-tech experience, mostly with customer service and
+                  Over the years I have accumulated various non-tech experience, mostly in customer service and
                   sales. I enjoy volunteering very much - i have been in numerous exhibitions and fairs,
                   but my favourite place to volunteer is {''}
                   <ToolLink href="https://www.mmlaboratorija.lt/edukacija/jaunju-astronomu-saskrydis">
