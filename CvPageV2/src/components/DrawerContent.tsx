@@ -17,7 +17,7 @@ export function DrawerContent({
   children,
 }: DrawerContentProps) {
   return (
-    <section className="relative isolate overflow-hidden bg-zinc-800 px-[clamp(1.25rem,1.5vw,2.5rem)]
+    <section className="relative isolate overflow-hidden bg-zinc-800 px-5
     pt-8
     pb-[clamp(1.5rem,2vw,3rem)]">
 

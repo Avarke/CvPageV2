@@ -15,7 +15,12 @@ import hobbiesVideo from './assets/videos/Manga 2(2).mp4'
 import davinciTimeline from './assets/misc/davinci_timeline_render.png'
 import { ToolLink } from './components/ToolLink'
 import hobbiesPic from './assets/hobbies/IMG_3829.webp'
+import hobbiesPoster from './assets/misc/hobby_poster.webp'
 import mangaPic from './assets/misc/cb5b4a302ifa1.jpg'
+import ambergrid from './assets/misc/amber_1.jpg'
+import bronius from './assets/misc/BRONIUS.jpg'
+import JAS from "./assets/misc/JAS.jpg"
+
 type DrawerSection = 'experience' | 'projects' | 'hobbies' | 'untitled' | null
 
 const backgroundImages = Object.values(
@@ -39,7 +44,7 @@ const drawerImages = [
 function App() {
 
 
-  
+
 
   const [copiedContact, setCopiedContact] = useState<string | null>(null)
   const [hoveredSocial, setHoveredSocial] = useState<string | null>(null)
@@ -85,10 +90,59 @@ function App() {
             <article>
               <DrawerTitle
                 title="Experience"
-                media={{type: 'video',src: hobbiesVideo }}
-                titleClassName="sm:scale-x-[1.025]"
-                
+                media={{ type: 'image', src: bronius, alt: 'Bronius portrait' }}
+                titleClassName="sm:scale-x-[0.9] scale-x-[1.01]"
               />
+              <DrawerContent title="Developer Internship (2026)" subtitle="mobreport system">
+                <div className='flow-root'>
+                  <img
+                    src={ambergrid}
+                    alt="Amber Grid"
+                    className="
+                      float-right
+                      ml-5 mb-1 mt-1
+                      h-auto
+                      w-30 sm:w-30
+                      opacity-80
+                      object-contain
+                      "
+                  />
+
+                <p className="font-mono text-[0.95rem] leading-[1.55] text">
+                  I did my first IT internship in {''}
+                  <ToolLink href="https://ambergrid.lt/"
+                  className='text-[#67C08B] underline decoration-[#67C08B]'>
+                  Amber Grid
+                  </ToolLink>
+                  . During it, I built a working internal system for importing and managing telecommunications data and expenses with a submission
+                  subsystem for letting managers and workers submit their expenses for approval. The system was built using {''}
+                  <strong className='text-stone-100'>C# and .NET</strong>, with an{' '}
+                  <strong className='text-stone-100'>SQL Server database</strong> and a web interface built with{' '}
+                  <strong className='text-stone-100'>React, Vite and Tailwind CSS</strong>.
+                </p>
+                </div>
+              </DrawerContent>
+
+              <DrawerContent title="Miscellaneous Jobs" image={JAS} subtitle="Non-tech jobs">
+                <div className='flow-root'>
+                  
+
+                <p className="font-mono text-[0.95rem] leading-[1.55] text">
+                  I have various non-tech experience, mostly with customer service and
+                  sales. I enjoy volunteering very much - i have been in numerous exhibitions and fairs,
+                  but my favourite place to volunteer is {''}
+                  <ToolLink href="https://www.mmlaboratorija.lt/edukacija/jaunju-astronomu-saskrydis">
+                    JAS
+                    </ToolLink>
+                    . You can find more details by {''}
+                  <ToolLink
+                    href={cvEngPdf}
+                    download="Arijus_Vaskiavicius_CV_ENG.pdf"
+                    target="_self">downloading my CV.</ToolLink>
+                 
+                </p>
+                </div>
+              </DrawerContent>
 
 
             </article>
@@ -101,6 +155,7 @@ function App() {
                 media={{
                   type: 'video',
                   src: hobbiesVideo,
+                  poster: hobbiesPoster
                 }}
               />
             </article>
@@ -116,7 +171,9 @@ function App() {
                   src: hobbiesVideo,
                 }}
               />
-              <DrawerContent title="Video Editing" subtitle="Moving Pictures" kanji="編集" image={davinciTimeline}>
+              <DrawerContent title="Video Editing" subtitle="Moving Pictures"
+                //kanji="編集" 
+                image={davinciTimeline}>
                 <p className="font-mono text-[0.95rem] leading-[1.55] text">
                   I like editing and composing videos. I have {''}
                   <strong className="text-stone-100">
@@ -139,7 +196,9 @@ function App() {
                 /> */}
               </DrawerContent>
 
-              <DrawerContent title="Photography" kanji="撮影" subtitle="Not moving pictures">
+              <DrawerContent title="Photography"
+                // kanji="撮影" 
+                subtitle="Not moving pictures">
                 <div className="flow-root">
                   <img
                     src={hobbiesPic}
@@ -216,12 +275,12 @@ function App() {
 
           {activeSection === 'untitled' && (
             <DrawerTitle
-                title="Education"
-                media={{
-                  type: 'video',
-                  src: hobbiesVideo,
-                }}
-              />
+              title="Education"
+              media={{
+                type: 'video',
+                src: hobbiesVideo,
+              }}
+            />
           )}
         </SidebarDrawer>
 
@@ -278,8 +337,9 @@ function App() {
               title="About"
             >
               <p className="leading-normal font-yu-gothic text-zinc-950">
-                I am a junior developer from KTU, alumni of SKILLed FinTech program. Passionate about creating innovative solutions and breaking conventions. Actively seeking opportunities to sharpen my skills and contribute to useful projects. <span className="mt-2 block text-right">
-                  - Sunrise, parabellum
+                I am a junior developer from KTU, alumni of SKILLed FinTech program. Passionate about creating innovative solutions and breaking conventions. Actively seeking opportunities to sharpen my skills and contribute to useful projects.
+                <span className="my-4 block text-right">
+                  Note: The page uses <strong className="text-red-800">JAPANESE </strong> typography
                 </span>
               </p>
               {/* Downlaod buttons and socials */}
@@ -385,6 +445,7 @@ function App() {
 
           </div>
 
+          {/* Detail cards */}
           <nav
             className="mt-5 grid grid-cols-2 gap-3 border-t border-zinc-400/50 pt-5"
             aria-label="CV sections"

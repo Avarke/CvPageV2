@@ -82,7 +82,7 @@ export function CvSection({ title, kanji, children, size= 'default' }: CvSection
       text-2xl
       font-semibold uppercase text-red-800">
         {kanji ? (
-          <div className="flex w-full items-baseline gap-2 pb-1">
+          <div className="flex w-full items-baseline gap-2 pb-3">
             <div className="tracking-tight whitespace-nowrap">
               {title}
             </div>

@@ -114,7 +114,7 @@ export function SidebarDrawer({
           </div>
         </div>
 
-        <div className="absolute inset-y-0 right-full z-20 w-3 bg-red-800" />
+        <div className="absolute inset-y-0 right-full z-20 w-3.5 bg-red-800" />
       </motion.section>
     </AnimatePresence>
   )

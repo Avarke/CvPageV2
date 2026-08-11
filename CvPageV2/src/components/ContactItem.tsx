@@ -50,7 +50,7 @@ export function ContactItem({ label, href, kanji, copyValue, copied = false, onC
     last:border-0 last:pb-0 last:after:hidden
   "
     >
-      <span className="inline-flex items-baseline gap-2 text-[1rem] font-semibold tracking-widest uppercase">
+      <span className="inline-flex items-baseline gap-2 text-[0.9rem] font-semibold tracking-widest uppercase">
         {kanji && (
           <span
             aria-hidden="true"
@@ -63,7 +63,7 @@ export function ContactItem({ label, href, kanji, copyValue, copied = false, onC
         {label}
       </span>
 
-      <span className="ml-auto font-century font-bold">
+      <span className="ml-auto text-[1rem] font-semibold ">
         {value}
       </span>
     </div>

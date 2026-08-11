@@ -12,7 +12,8 @@ const buttonVariants = cva(
 
     text-body
     leading-none
-    font-normal
+    font-bold
+    font-yu-gothic
     tracking-tight
 
     transition-[background-color,border-color,color,box-shadow]
@@ -36,9 +37,9 @@ const buttonVariants = cva(
       variant: {
         default: `
           border-2
-          border-zinc-300
+          border-red-700/70
           bg-white/75
-          text-zinc-950
+          text-red-800
 
           hover:border-red-800
           hover:bg-red-800
