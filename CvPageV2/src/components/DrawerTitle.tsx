@@ -18,6 +18,7 @@ type DrawerTitleProps = {
     media?: DrawerMedia
     titleClassName?: string
     titleWrapperClassName?: string
+    overlayClassName?: string
 }
 
 export function DrawerTitle({
@@ -25,6 +26,7 @@ export function DrawerTitle({
     media,
     titleClassName,
     titleWrapperClassName,
+    overlayClassName
 }: DrawerTitleProps) {
     return (
         <header className="relative flex aspect-video w-full items-center justify-center overflow-hidden bg-zinc-950">
@@ -52,7 +54,12 @@ export function DrawerTitle({
 
             {/* <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-black/10" /> */}
             {/* <div className="absolute inset-0 z-10 grid place-items-center "></div> */}
-            <div className="absolute -inset-1 bg-black/75" />
+            <div
+                className={cn(
+                    'absolute -inset-1 bg-black/75',
+                    overlayClassName,
+                )}
+            />
             <div
                 aria-hidden="true"
                 className="

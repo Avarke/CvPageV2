@@ -20,8 +20,10 @@ import mangaPic from './assets/misc/cb5b4a302ifa1.jpg'
 import ambergrid from './assets/misc/amber_1.jpg'
 import bronius from './assets/misc/BRONIUS.jpg'
 import JAS from "./assets/misc/JAS.jpg"
+import SlimeSoccer from "./assets/misc/slimesoccer.png"
+import codeRender from "./assets/misc/code_render.jpg"
 
-type DrawerSection = 'experience' | 'projects' | 'hobbies' | 'untitled' | null
+type DrawerSection = 'experience' | 'projects' | 'hobbies' | 'education' | null
 
 const backgroundImages = Object.values(
   import.meta.glob('./assets/background/*', {
@@ -30,7 +32,7 @@ const backgroundImages = Object.values(
   }),
 ) as string[]
 
-const skills = ['React', 'TypeScript', 'Tailwind CSS', 'C#', '.NET', 'SQL', 'Python', 'Java']
+const skills = ['React', 'TypeScript', 'Tailwind CSS', 'C#', '.NET', 'SQL', 'Python', 'Java', 'Photoshop', 'Linux', 'Premiere Pro']
 const linkedInUrl = 'https://www.linkedin.com/in/arijus-vaskiavicius/'
 const githubUrl = 'https://github.com/Avarke'
 
@@ -92,6 +94,7 @@ function App() {
                 title="Experience"
                 media={{ type: 'image', src: bronius, alt: 'Bronius portrait' }}
                 titleClassName="sm:scale-x-[0.9] scale-x-[1.01]"
+                overlayClassName="bg-black/65"
               />
               <DrawerContent title="Developer Internship (2026)" subtitle="mobreport system">
                 <div className='flow-root'>
@@ -108,39 +111,39 @@ function App() {
                       "
                   />
 
-                <p className="font-mono text-[0.95rem] leading-[1.55] text">
-                  I did my first IT internship in {''}
-                  <ToolLink href="https://ambergrid.lt/"
-                  className='text-[#67C08B] underline decoration-[#67C08B]'>
-                  Amber Grid
-                  </ToolLink>
-                  . During it, I built a working internal system for importing and managing telecommunications data and expenses with a submission
-                  subsystem for letting managers and workers submit their expenses for approval. The system was built using {''}
-                  <strong className='text-stone-100'>C# and .NET</strong>, with an{' '}
-                  <strong className='text-stone-100'>SQL Server database</strong> and a web interface built with{' '}
-                  <strong className='text-stone-100'>React, Vite and Tailwind CSS</strong>.
-                </p>
+                  <p className="font-mono text-[0.95rem] leading-[1.55] text">
+                    I did my first IT internship in {''}
+                    <ToolLink href="https://ambergrid.lt/"
+                      className='text-[#67C08B] underline decoration-[#67C08B]'>
+                      Amber Grid
+                    </ToolLink>
+                    . During it, I built a working internal system for importing and managing telecommunications data and expenses with a submission
+                    subsystem for letting managers and workers submit their expenses for approval. The system was built using {''}
+                    <strong className='text-stone-100'>C# and .NET</strong>, with an{' '}
+                    <strong className='text-stone-100'>SQL Server database</strong> and a web interface built with{' '}
+                    <strong className='text-stone-100'>React, Vite and Tailwind CSS</strong>.
+                  </p>
                 </div>
               </DrawerContent>
 
               <DrawerContent title="Miscellaneous Jobs" image={JAS} subtitle="Non-tech jobs">
                 <div className='flow-root'>
-                  
 
-                <p className="font-mono text-[0.95rem] leading-[1.55] text">
-                  Over the years I have accumulated various non-tech experience, mostly in customer service and
-                  sales. I enjoy volunteering very much - i have been in numerous exhibitions and fairs,
-                  but my favourite place to volunteer is {''}
-                  <ToolLink href="https://www.mmlaboratorija.lt/edukacija/jaunju-astronomu-saskrydis">
-                    JAS
+
+                  <p className="font-mono text-[0.95rem] leading-[1.55] text">
+                    Over the years I have accumulated various non-tech experience, mostly in customer service and
+                    sales. I enjoy volunteering very much - i have been in numerous exhibitions and fairs,
+                    but my favourite place to volunteer is {''}
+                    <ToolLink href="https://www.mmlaboratorija.lt/edukacija/jaunju-astronomu-saskrydis">
+                      JAS
                     </ToolLink>
                     . You can find more details by {''}
-                  <ToolLink
-                    href={cvEngPdf}
-                    download="Arijus_Vaskiavicius_CV_ENG.pdf"
-                    target="_self">downloading my CV.</ToolLink>
-                 
-                </p>
+                    <ToolLink
+                      href={cvEngPdf}
+                      download="Arijus_Vaskiavicius_CV_ENG.pdf"
+                      target="_self">downloading my CV.</ToolLink>
+
+                  </p>
                 </div>
               </DrawerContent>
 
@@ -153,11 +156,53 @@ function App() {
               <DrawerTitle
                 title="Projects"
                 media={{
-                  type: 'video',
-                  src: hobbiesVideo,
-                  poster: hobbiesPoster
+                  type: 'image',
+                  src: codeRender,
+                  alt: 'Code Render'
                 }}
+                titleClassName="sm:scale-x-[1.2] scale-x-[1.25]"
+                overlayClassName="bg-black/40"
               />
+
+              <DrawerContent title="MobReport System" subtitle="Practical report management tool">
+                <div className='flow-root'>
+
+
+                  <p className="font-mono text-[0.95rem] leading-[1.55] text">
+                    The biggest project i worked on yet was for {''}
+                    <ToolLink href="https://ambergrid.lt/"
+                      className='text-[#67C08B] underline decoration-[#67C08B]'>
+                      Amber Grid
+                    </ToolLink>
+                    . I created a system that processes data from several ISP's and combines them into a unified data model by using a
+                    <strong className='text-stone-100'> .NET API </strong> and stores it inside an <strong className='text-stone-100'> SQL Server. </strong>
+                    The unified data is then used for generating usage reports for employees. In cases where an employee went over their
+                    usage limit, a submission subsystem allows them to submit particular usage cases to their managers in order to get them checked.
+                    All system actions happen through a web UI built on <strong className='text-stone-100'> REACT and VITE. </strong>
+                  </p>
+                </div>
+              </DrawerContent>
+
+              <DrawerContent title="Various Small Projects" subtitle="for academia and fun" image={SlimeSoccer}>
+                <div className='flow-root'>
+                  <p className="font-mono text-[0.95rem] leading-[1.55] text">
+                    I've made various smaller projects during my university years. I have worked with <strong className='text-stone-100'> JAVA and Python </strong>
+                    for smaller tasks regarding data structures, ML training and made a {''}
+                    <ToolLink href="https://github.com/Avarke/SlimeSoccer-Design-Patterns">
+                      small multiplayer game
+                    </ToolLink>
+                    {''} for a university assignment. You can find most of my projects, along with this page, in my {''}
+                    <ToolLink href="https://github.com/Avarke">
+                      GitHub
+                    </ToolLink>
+                    .
+
+                  </p>
+                </div>
+              </DrawerContent>
+
+
+
             </article>
 
           )}
@@ -273,7 +318,7 @@ function App() {
             </article>
           )}
 
-          {activeSection === 'untitled' && (
+          {activeSection === 'education' && (
             <DrawerTitle
               title="Education"
               media={{
@@ -435,7 +480,7 @@ function App() {
           px-[clamp(0.75rem,0.7vw,1.125rem)]
           py-[clamp(0.25rem,0.3vw,0.5rem)]
           font-yu-gothic text-[0.85em]
-          font-normal text-red-800"
+          font-bold text-red-800"
                   >
                     {skill}
                   </span>
@@ -472,10 +517,10 @@ function App() {
             />
 
             <DetailCard
-              title="Untitled"
-              kanji="未知"
-              active={activeSection === 'untitled'}
-              onClick={() => toggleSection('untitled')}
+              title="Education"
+              kanji="教育"
+              active={activeSection === 'education'}
+              onClick={() => toggleSection('education')}
             />
           </nav>
         </aside>

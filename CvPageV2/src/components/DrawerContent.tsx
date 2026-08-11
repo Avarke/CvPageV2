@@ -108,9 +108,9 @@ export function DrawerContent({
         </div>
         <header className="mb-[clamp(1.25rem,1.5vw,2.0rem)]">
           <h2 className="origin-bottom 
-         scale-y-[1.50] font-ep-kaisho text-3xl leading-none
+         scale-y-[1.50] font-ep-kaisho text-3xl leading-[1.15]
          font-semibold tracking-normal text-white 
-         mb-[clamp(0.3rem,0.1vw,0.5rem)]   
+        mb-[0.1rem] 
          text-cv-section-title">
 
             {kanji ? (
