@@ -5,7 +5,12 @@ import profilePicture from './assets/profile/unnamed.webp'
 import { Button } from './components/Button'
 import { CvSection } from './components/CvSection'
 import { FiLinkedin, FiGithub } from 'react-icons/fi'
+
 import cvEngPdf from './assets/downloads/CV - Arijus Vaškiavičius_ENG.pdf'
+import cvLtPdf from './assets/downloads/CV - Arijus Vaškiavičius_LT.pdf'
+import recommendation from './assets/downloads/Arijus_Vaskiavicius_recommendation-1.pdf'
+import certificate from './assets/downloads/certificate.pdf'
+
 import { HoverTooltip } from './components/HoverTooltip'
 import { ContactItem } from './components/ContactItem'
 import { DetailCard } from './components/DetailCard'
@@ -22,6 +27,10 @@ import bronius from './assets/misc/BRONIUS.jpg'
 import JAS from "./assets/misc/JAS.jpg"
 import SlimeSoccer from "./assets/misc/slimesoccer.png"
 import codeRender from "./assets/misc/code_render.jpg"
+import dyplom from "./assets/misc/dyplom.jpg"
+import ktu from "./assets/misc/ktu_atributika_shop-897x1024.png"
+import skilled from "./assets/misc/SKILLed-Fintech-psl-1.jpg"
+
 
 type DrawerSection = 'experience' | 'projects' | 'hobbies' | 'education' | null
 
@@ -132,7 +141,7 @@ function App() {
 
                   <p className="font-mono text-[0.95rem] leading-[1.55] text">
                     Over the years I have accumulated various non-tech experience, mostly in customer service and
-                    sales. I enjoy volunteering very much - i have been in numerous exhibitions and fairs,
+                    sales. I enjoy volunteering very much - I have been in numerous exhibitions and fairs,
                     but my favourite place to volunteer is {''}
                     <ToolLink href="https://www.mmlaboratorija.lt/edukacija/jaunju-astronomu-saskrydis">
                       JAS
@@ -169,7 +178,7 @@ function App() {
 
 
                   <p className="font-mono text-[0.95rem] leading-[1.55] text">
-                    The biggest project i worked on yet was for {''}
+                    The biggest project I worked on yet was for {''}
                     <ToolLink href="https://ambergrid.lt/"
                       className='text-[#67C08B] underline decoration-[#67C08B]'>
                       Amber Grid
@@ -278,7 +287,7 @@ function App() {
                 <div className="flow-root">
 
                   <p className="font-mono text-[0.95rem] leading-[1.55] text">
-                    You may have noticed i quite like things from the japanese culture.
+                    You may have noticed I quite like things from the japanese culture.
                     Specifically manga, anime and history. I am fascinated by the works
                     of {''}
                     <ToolLink href="https://tsutomu-nihei.fandom.com/wiki/Tsutomu_Nihei">
@@ -319,13 +328,83 @@ function App() {
           )}
 
           {activeSection === 'education' && (
-            <DrawerTitle
-              title="Education"
-              media={{
-                type: 'video',
-                src: hobbiesVideo,
-              }}
-            />
+            <article>
+              <DrawerTitle
+                title="Education"
+                media={{
+                  type: 'image',
+                  src: dyplom,
+                  alt: "Diplomu_iteikimas"
+                }}
+                titleClassName="sm:scale-x-[1] scale-x-[1.08]"
+                overlayClassName="bg-black/75"
+              />
+
+              <DrawerContent title="Program Systems Bachelor" subtitle="KTU - 2026">
+                <div className='flow-root'>
+                  <img
+                    src={ktu}
+                    alt="KTU"
+                    className="
+                      float-right
+                      ml-5 mb-1 mt-1
+                      h-auto
+                      w-30 sm:w-30
+                      opacity-80
+                      object-contain
+                      "
+                  />
+
+                  <p className="font-mono text-[0.95rem] leading-[1.55] text">
+
+                    I finished the {''}
+                    <ToolLink href="https://admissions.ktu.edu/programme/b-software-systems/">
+                      "Program Systems"
+                    </ToolLink>
+                    {''} program in KTU and received a {''}
+
+                    <strong className='text-stone-100'>Bachelor in Computing.</strong> During it, I learned {''}
+                    <strong className='text-stone-100'>the fundamentals of software design/architecture and programming</strong>
+                    {''} and got to work with numerous tools and programming languages (which are listed in my technical skills section).
+                  </p>
+                </div>
+              </DrawerContent>
+
+              <DrawerContent title="SKILLed FinTech" subtitle="KTU Talent Program" image={skilled}>
+                <div className='flow-root'>
+
+
+                  <p className="font-mono text-[0.95rem] leading-[1.55] text">
+
+                    Besides finishing my Bachelor in KTU, I also graduated from the {''}
+                    <ToolLink href="https://students.ktu.edu/ed-programmes/skilled-fintech/">
+                      SKILLed FinTech
+                    </ToolLink>
+                    {''} talent program. The program gave me additional knowledge in {''}
+                    <strong className='text-stone-100'>economics, business and financial technology.</strong>
+                    {''} As well helping me grow as a person during the university years. You can download my certificate and recommendation below.
+                    <div className="mt-3 flex flex-wrap gap-2">
+
+                      <Button variant="drawer" size="sm">
+                        <a href={certificate} download="Arijus_Vaskiavicius_Certificate.pdf">
+                          Certificate
+                        </a>
+                      </Button>
+
+                      <Button variant="drawer" size="sm">
+                        <a href={recommendation} download="Arijus_Vaskiavicius_Recommendation.pdf">
+                          Recommendation
+                        </a>
+                      </Button>
+
+
+                    </div>
+
+                  </p>
+                </div>
+              </DrawerContent>
+            </article>
+
           )}
         </SidebarDrawer>
 
@@ -396,7 +475,7 @@ function App() {
                 </Button>
                 {/* TODO: ideti lietuviska CV */}
                 <Button variant="default" size="sm">
-                  <a href={cvEngPdf} download="Arijus_Vaskiavicius_CV_ENG.pdf">
+                  <a href={cvLtPdf} download="Arijus_Vaskiavicius_CV_LT.pdf">
                     Download CV (LT)
                   </a>
                 </Button>
