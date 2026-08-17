@@ -30,6 +30,7 @@ import codeRender from "./assets/misc/code_render.jpg"
 import dyplom from "./assets/misc/dyplom.jpg"
 import ktu from "./assets/misc/ktu_atributika_shop-897x1024.png"
 import skilled from "./assets/misc/SKILLed-Fintech-psl-1.jpg"
+import DE from './assets/misc/9ssfgekfoup61.jpg'
 
 
 type DrawerSection = 'experience' | 'projects' | 'hobbies' | 'education' | null
@@ -315,6 +316,38 @@ function App() {
                       Samurai Champloo
                     </ToolLink>
                     .
+                  </p>
+                </div>
+                {/* <img
+                  src={editingImage}
+                  alt="Video editing project"
+                /> */}
+              </DrawerContent>
+
+              <DrawerContent title="Video Games" subtitle="A extraordinary art form" image={DE}>
+
+                <div className="flow-root">
+
+                  <p className="font-mono text-[0.95rem] leading-[1.55] text">
+                    I very much enjoy playing and analyzing video games. I don't view
+                    them simply as "entertainment" or something you do to waste your time. They can be thoughtful, provocative,
+                    meaningful - 
+                    <strong>a medium that's capable of telling stories in it's own unique way and invoke emotions inside you.</strong> Isn't that what all great art does?
+                    Of course, I play them for entertainment as well, but what interests me more are the stories and ways they are told. {''}
+                    <ToolLink href="https://www.youtube.com/watch?v=63PzQIbTrM8">
+                      Nier: Automata
+                    </ToolLink>
+                    {''} introduced me to some of humanity's greatest thinkers. {''}
+                    <ToolLink href="https://www.youtube.com/watch?v=BA54VHdb1j0">
+                      Disco Elysium
+                    </ToolLink>
+                    {''} masterfully deconstructed the modern human nature and ideologies that power it. {''}
+                    <ToolLink href="https://www.youtube.com/watch?v=H-yTZFi-_eY">
+                      Outer Wilds
+                    </ToolLink>
+                    {''} made me sit in reflective and somber silence as the credits rolled... Those are just a few examples of what the form is capable of - it has so much more
+                    to offer if one simply becomes open to it.
+                    And if you still think of games as silly little things after interacting with the ones listed, then I'm afraid you're just trapped by your senile ignorance.
                   </p>
                 </div>
                 {/* <img

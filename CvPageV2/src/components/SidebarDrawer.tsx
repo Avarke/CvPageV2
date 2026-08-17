@@ -15,6 +15,8 @@ function useMediaQuery(query: string) {
       : false,
   )
 
+
+
   useEffect(() => {
     const mediaQuery = window.matchMedia(query)
 
@@ -41,19 +43,37 @@ export function SidebarDrawer({
   const isOpen = activeSection !== null
   const isDesktop = useMediaQuery('(min-width: 640px)')
 
+  const [retainedChildren, setRetainedChildren] =
+    useState<ReactNode>(null)
+
+  useEffect(() => {
+    if (isOpen) {
+      setRetainedChildren(children)
+    }
+  }, [isOpen, children])
+
   if (!isDesktop) {
     return (
       <section
         aria-hidden={!isOpen}
+        onTransitionEnd={(event) => {
+          if (
+            event.target === event.currentTarget &&
+            event.propertyName === 'transform' &&
+            !isOpen
+          ) {
+            setRetainedChildren(null)
+          }
+        }}
         className={`
-          absolute inset-0 z-30 overflow-hidden
-          bg-zinc-800 text-white
-          transition-transform duration-500 ease-in-out
-          ${isOpen
+    absolute inset-0 z-30 overflow-hidden
+    bg-zinc-800 text-white
+    transition-transform duration-500 ease-in-out
+    ${isOpen
             ? 'translate-y-0'
             : 'translate-y-[calc(100%-0.75rem)]'
           }
-        `}
+  `}
       >
         {/* Visible at the bottom while closed */}
         <div className="absolute inset-x-0 top-0 h-3 bg-red-800" />
@@ -80,7 +100,7 @@ export function SidebarDrawer({
 
           <div className="min-h-full">
             {/* <div className="min-h-full p-6 pt-16"> */}
-            {children}
+            {isOpen ? children : retainedChildren}
           </div>
         </div>
       </section>
