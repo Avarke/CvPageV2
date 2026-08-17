@@ -324,7 +324,7 @@ function App() {
                 /> */}
               </DrawerContent>
 
-              <DrawerContent title="Video Games" subtitle="A extraordinary art form" image={DE}>
+              <DrawerContent title="Video Games" subtitle="An extraordinary art form" image={DE}>
 
                 <div className="flow-root">
 
