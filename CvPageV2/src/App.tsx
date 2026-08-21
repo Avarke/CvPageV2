@@ -27,7 +27,7 @@ import bronius from './assets/misc/BRONIUS.jpg'
 import JAS from "./assets/misc/JAS.jpg"
 import SlimeSoccer from "./assets/misc/slimesoccer.png"
 import codeRender from "./assets/misc/code_render.jpg"
-import dyplom from "./assets/misc/dyplom.jpg"
+import dyplom from "./assets/misc/dyplom.webp"
 import ktu from "./assets/misc/ktu_atributika_shop-897x1024.png"
 import skilled from "./assets/misc/SKILLed-Fintech-psl-1.jpg"
 import DE from './assets/misc/9ssfgekfoup61.jpg'
