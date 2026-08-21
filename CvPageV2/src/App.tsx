@@ -1,7 +1,16 @@
 import { BackgroundCarousel } from './components/BackgroundCarousel'
 import { useState, useEffect, type ReactNode } from 'react'
 import { SidebarDrawer } from './components/SidebarDrawer'
+
+
 import profilePicture from './assets/profile/unnamed.webp'
+import profile384 from './assets/profile/profile-384.webp'
+import profile512 from './assets/profile/profile-512.webp'
+import profile768 from './assets/profile/profile-768.webp'
+import profile1024 from './assets/profile/profile-1024.webp'
+import profile1280 from './assets/profile/profile-1280.webp'
+
+
 import { Button } from './components/Button'
 import { CvSection } from './components/CvSection'
 import { FiLinkedin, FiGithub } from 'react-icons/fi'
@@ -331,7 +340,7 @@ function App() {
                   <p className="font-mono text-[0.95rem] leading-[1.55] text">
                     I very much enjoy playing and analyzing video games. I don't view
                     them simply as "entertainment" or something you do to waste your time. They can be thoughtful, provocative,
-                    meaningful - 
+                    meaningful -
                     <strong>a medium that's capable of telling stories in it's own unique way and invoke emotions inside you.</strong> Isn't that what all great art does?
                     Of course, I play them for entertainment as well, but what interests me more are the stories and ways they are told. {''}
                     <ToolLink href="https://www.youtube.com/watch?v=63PzQIbTrM8">
@@ -448,7 +457,22 @@ function App() {
             <section className="group relative overflow-hidden @container text-white/95">
               <img
                 fetchPriority="high"
-                src={profilePicture}
+                src={profile768}
+                srcSet={`
+                  ${profile384} 384w,
+                  ${profile512} 512w,
+                  ${profile768} 768w,
+                  ${profile1024} 1024w,
+                  ${profile1280} 1280w
+                `}
+                sizes="
+                  (max-width: 639px) calc(100vw - 40px),
+                  (max-width: 1439px) 424px,
+                  (max-width: 2015px) calc(33.333vw - 56px),
+                  616px
+                "
+                width={768}
+                height={768}
                 loading="eager"
                 decoding="async"
                 className="h-full w-full object-cover transition-transform duration-500 ease-out scale-[1.1] group-hover:scale-[1.15]"
