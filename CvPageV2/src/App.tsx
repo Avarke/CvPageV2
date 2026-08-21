@@ -506,7 +506,7 @@ function App() {
                   </h1>
 
                   <p className="origin-top scale-y-[1.40] font-yu-gothic text-sm font-bold tracking-normal text-stone-300 uppercase sm:text-[clamp(1rem,3cqw,1.25rem)] text-[clamp(1rem,4cqw,1.25rem)]">
-                    Junior Developer
+                    Full-Stack Developer
                   </p>
                 </div>
               </div>
@@ -518,7 +518,7 @@ function App() {
               title="About"
             >
               <p className="leading-normal font-yu-gothic text-zinc-950">
-                I am a junior developer from KTU, alumni of SKILLed FinTech program. Passionate about creating innovative solutions and breaking conventions. Actively seeking opportunities to sharpen my skills and contribute to useful projects.
+                I am a full-stack developer from KTU, alumni of SKILLed FinTech program. Passionate about creating innovative solutions, . Actively seeking opportunities to sharpen my skills and contribute to useful projects.
                 <span className="my-4 block text-right">
                   Note: The page uses <strong className="text-red-800">JAPANESE </strong> typography
                 </span>
