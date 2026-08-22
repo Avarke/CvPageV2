@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "fonts:subset": "npx glyphhanger src/assets/font-subset/characters.txt --US_ASCII --subset=\"src/assets/font-source/*.{ttf,otf,woff,woff2}\" --formats=woff2 --output=src/assets/font_generated"
+    "fonts:subset": "npx glyphhanger src/assets/font_subset/characters.txt --US_ASCII --subset=\"src/assets/font_source/*.{ttf,otf,woff,woff2}\" --formats=woff2 --output=src/assets/font_generated"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.3.3",
