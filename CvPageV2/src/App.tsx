@@ -1,5 +1,5 @@
 import { BackgroundCarousel } from './components/BackgroundCarousel'
-import { useState, useEffect, type ReactNode } from 'react'
+import { useState, useEffect } from 'react'
 import { SidebarDrawer } from './components/SidebarDrawer'
 
 
@@ -56,16 +56,58 @@ const linkedInUrl = 'https://www.linkedin.com/in/arijus-vaskiavicius/'
 const githubUrl = 'https://github.com/Avarke'
 
 const drawerImages = [
+  ambergrid,
+  bronius,
+  JAS,
+  SlimeSoccer,
+  codeRender,
   davinciTimeline,
   hobbiesPic,
   mangaPic,
+  DE,
+  dyplom,
+  ktu,
+  skilled,
 ]
 
 
 function App() {
+  const [isDesktop, setIsDesktop] = useState(() =>
+    typeof window !== 'undefined'
+      ? window.matchMedia('(min-width: 640px)').matches
+      : false,
+  )
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 640px)')
 
+    function handleChange(event: MediaQueryListEvent) {
+      setIsDesktop(event.matches)
+    }
 
+    setIsDesktop(mediaQuery.matches)
+    mediaQuery.addEventListener('change', handleChange)
+
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
+
+  useEffect(() => {
+    const preloaders = drawerImages.map((src) => {
+      const image = new Image()
+
+      image.fetchPriority = 'low'
+      image.decoding = 'async'
+      image.src = src
+
+      return image
+    })
+
+    return () => {
+      preloaders.forEach((image) => {
+        image.removeAttribute('src')
+      })
+    }
+  }, [])
 
   const [copiedContact, setCopiedContact] = useState<string | null>(null)
   const [hoveredSocial, setHoveredSocial] = useState<string | null>(null)
@@ -100,7 +142,7 @@ function App() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
-      <BackgroundCarousel images={backgroundImages} />
+      {isDesktop && <BackgroundCarousel images={backgroundImages} />}
 
       <div className="fixed inset-0 z-50 w-full sm:inset-y-0 sm:right-0 sm:left-auto sm:w-[max(33.333vw,30rem)] lg:w-[clamp(30rem,33.333vw,42rem)]">
         <SidebarDrawer
