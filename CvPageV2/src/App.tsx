@@ -26,14 +26,14 @@ import { DetailCard } from './components/DetailCard'
 import { DrawerTitle } from './components/DrawerTitle'
 import { DrawerContent } from './components/DrawerContent'
 import hobbiesVideo from './assets/videos/Manga 2(2).mp4'
-import davinciTimeline from './assets/misc/davinci_timeline_render.png'
+import davinciTimeline from './assets/misc/davinci_timeline_render.webp'
 import { ToolLink } from './components/ToolLink'
 import hobbiesPic from './assets/hobbies/IMG_3829.webp'
 import hobbiesPoster from './assets/misc/hobby_poster.webp'
 import mangaPic from './assets/misc/cb5b4a302ifa1.jpg'
 import ambergrid from './assets/misc/amber_1.jpg'
 import bronius from './assets/misc/BRONIUS.jpg'
-import JAS from "./assets/misc/JAS.jpg"
+import JAS from "./assets/misc/JAS.webp"
 import SlimeSoccer from "./assets/misc/slimesoccer.png"
 import codeRender from "./assets/misc/code_render.jpg"
 import dyplom from "./assets/misc/dyplom.webp"
