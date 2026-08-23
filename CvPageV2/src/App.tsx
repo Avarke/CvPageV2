@@ -72,6 +72,7 @@ const drawerImages = [
 
 
 function App() {
+  const [profileImageLoaded, setProfileImageLoaded] = useState(false)
   const [isDesktop, setIsDesktop] = useState(() =>
     typeof window !== 'undefined'
       ? window.matchMedia('(min-width: 640px)').matches
@@ -496,7 +497,7 @@ function App() {
           <div className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-4">
 
             {/* Foto, name ir contact section */}
-            <section className="group relative overflow-hidden @container text-white/95">
+            <section className="group relative overflow-hidden bg-black @container text-white/95">
               <img
                 fetchPriority="high"
                 src={profile768}
@@ -517,7 +518,19 @@ function App() {
                 height={768}
                 loading="eager"
                 decoding="async"
-                className="h-full w-full object-cover transition-transform duration-500 ease-out scale-[1.1] group-hover:scale-[1.15]"
+                onLoad={(event) => {
+                  const image = event.currentTarget
+
+                  void image.decode().then(
+                    () => setProfileImageLoaded(true),
+                    () => setProfileImageLoaded(true),
+                  )
+                }}
+                style={{
+                  opacity: profileImageLoaded ? 1 : 0,
+                  transition: 'opacity 1.5s ease-in-out, transform 500ms ease-out',
+                }}
+                className="h-full w-full scale-[1.1] object-cover group-hover:scale-[1.15]"
               />
 
               <div className="absolute inset-0 bg-linear-to-t from-black via-black/15 to-transparent" />
