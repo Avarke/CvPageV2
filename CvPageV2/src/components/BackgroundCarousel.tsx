@@ -25,6 +25,7 @@ export function BackgroundCarousel({
 }: BackgroundCarouselProps) {
   const [order, setOrder] = useState<string[]>([])
   const [activeIndex, setActiveIndex] = useState(0)
+  const [loadedImage, setLoadedImage] = useState<string | null>(null)
 
 
   useEffect(() => {
@@ -65,19 +66,29 @@ export function BackgroundCarousel({
     return null
   }
 
+  const activeImage = order[activeIndex] ?? images[activeIndex]
+
   return (
     <div className={`pointer-events-none fixed inset-0 overflow-hidden ${className}`}>
       <AnimatePresence mode="wait">
         <motion.img
-          key={order[activeIndex] ?? images[activeIndex]}
-          src={order[activeIndex] ?? images[activeIndex]}
+          key={activeImage}
+          src={activeImage}
           fetchPriority={activeIndex === 0 ? 'high' : 'auto'}
           alt=""
           aria-hidden="true"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={{ opacity: loadedImage === activeImage ? 1 : 0 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5, ease: 'easeInOut' }}
+          onLoad={(event) => {
+            const image = event.currentTarget
+
+            void image.decode().then(
+              () => setLoadedImage(activeImage),
+              () => setLoadedImage(activeImage),
+            )
+          }}
           className="absolute inset-0 h-full w-full object-cover"
         />
       </AnimatePresence>
