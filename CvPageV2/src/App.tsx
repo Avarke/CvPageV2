@@ -528,7 +528,7 @@ function App() {
                 }}
                 style={{
                   opacity: profileImageLoaded ? 1 : 0,
-                  transition: 'opacity 1.5s ease-in-out, transform 500ms ease-out',
+                  transition: 'opacity 1.5s ease-in-out, scale 300ms ease-in-out',
                 }}
                 className="h-full w-full scale-[1.1] object-cover group-hover:scale-[1.15]"
               />
