@@ -573,7 +573,9 @@ function App() {
               title="About"
             >
               <p className="leading-normal font-yu-gothic text-zinc-950">
-                I am a full-stack developer from KTU, alumni of SKILLed FinTech program. Passionate about creating innovative solutions, . Actively seeking opportunities to sharpen my skills and contribute to useful projects.
+                I am a <strong className='text-red-800'>full-stack developer from KTU, </strong>alumni of SKILLed FinTech program.
+                Focused on <strong className='text-red-800'>optimization, quality and cost-efficiency.</strong>  Always eager to learn something new. 
+                Actively seeking opportunities to sharpen my skills and contribute to useful projects.
                 <span className="my-4 block text-right">
                   Note: The page uses <strong className="text-red-800">JAPANESE </strong> typography
                 </span>
