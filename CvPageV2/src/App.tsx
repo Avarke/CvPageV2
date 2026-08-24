@@ -51,7 +51,7 @@ const backgroundImages = Object.values(
   }),
 ) as string[]
 
-const skills = ['React', 'TypeScript', 'Tailwind CSS', 'C#', '.NET', 'SQL', 'Python', 'Java', 'Photoshop', 'Linux', 'Premiere Pro']
+const skills = ['React', 'TypeScript', 'Tailwind CSS', 'C#', '.NET', 'SQL', 'Python', 'Java', 'CI/CD Workflows', 'Linux', 'Git', 'MS Azure']
 const linkedInUrl = 'https://www.linkedin.com/in/arijus-vaskiavicius/'
 const githubUrl = 'https://github.com/Avarke'
 
@@ -450,7 +450,7 @@ function App() {
 
                     <strong className='text-stone-100'>Bachelor in Computing.</strong> During it, I learned {''}
                     <strong className='text-stone-100'>the fundamentals of software design/architecture and programming</strong>
-                    {''} and got to work with numerous tools and programming languages (which are listed in my technical skills section).
+                    {''} and got to work with numerous tools as well as programming languages (which are listed in my technical skills section).
                   </p>
                 </div>
               </DrawerContent>
@@ -467,7 +467,7 @@ function App() {
                     </ToolLink>
                     {''} talent program. The program gave me additional knowledge in {''}
                     <strong className='text-stone-100'>economics, business and financial technology.</strong>
-                    {''} As well helping me grow as a person during the university years. You can download my certificate and recommendation below.
+                    {''} As well as helping me grow as a person during the university years. You can download my certificate and recommendation below.
                     <div className="mt-3 flex flex-wrap gap-2">
 
                       <Button variant="drawer" size="sm">
