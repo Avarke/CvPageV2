@@ -17,7 +17,7 @@
   src: url('./assets/font_source/epkaisho.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
-  font-display: block;
+  font-display: swap;
 }
 
 
@@ -63,6 +63,8 @@
   --font-matisse: 'FOT Matisse Pro', serif;
   --font-ep-kaisho: 'EP Kaisho', serif; /* For big titles */
   --font-yu-gothic: 'Yu Gothic Local', sans-serif; /* For body text */
+  --font-name: "Times New Roman", Times, serif;
+
 
 
 /* Yu gothic, Matisse and EP kaisho use kanji - keep in mind when generating font subsets! */

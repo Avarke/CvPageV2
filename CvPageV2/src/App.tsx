@@ -555,7 +555,7 @@ function App() {
                   猫
                 </span>
                 <div className="absolute inset-x-0 bottom-0 p-6 sm:p-[clamp(1.75rem,6cqw,3rem)]">
-                  <h1 className="mb-1 origin-bottom scale-y-[1.50] font-ep-kaisho text-5xl leading-none tracking-normal font-semibold sm:text-[clamp(3rem,10cqw,5rem)]">
+                  <h1 className="mb-1 origin-bottom scale-y-[1.50] font-name text-5xl leading-none tracking-normal font-semibold sm:text-[clamp(3rem,10cqw,5rem)]">
                     Arijus <br />
                     Vaškiavičius
                   </h1>

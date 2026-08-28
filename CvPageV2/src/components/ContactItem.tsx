@@ -54,7 +54,7 @@ export function ContactItem({ label, href, kanji, copyValue, copied = false, onC
         {kanji && (
           <span
             aria-hidden="true"
-            className="shrink-0 font-ep-kaisho tracking-normal"
+            className="shrink-0 font-name tracking-normal"
           >
             {kanji}
           </span>
