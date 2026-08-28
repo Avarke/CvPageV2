@@ -14,10 +14,10 @@
 
 @font-face {
   font-family: 'EP Kaisho';
-  src: url('./assets/font_source/epkaisho.woff2') format('woff2');
+  src: url('./assets/font_source/epkaisho.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 

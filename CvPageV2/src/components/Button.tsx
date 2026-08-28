@@ -37,7 +37,7 @@ const buttonVariants = cva(
       variant: {
         default: `
           border-2
-          border-red-700/70
+          border-red-800/70
           bg-white/75
           text-red-800
 
